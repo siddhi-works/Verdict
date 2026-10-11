@@ -5,11 +5,11 @@ __pycache__/
 .pytest_cache/
 # generated / runtime
 /ledger/
-audit_run.json
+/audit_run.json
 /data/v2/
 /.claude/
 data_real/cache/
-audit_results.json
+/audit_results.json
 run_ai_report.log
 .vercel
 *.log
