@@ -1,0 +1,29 @@
+{
+  "note": "Public SLA pages. The repo stores links only; run `python -m data_real.fetch_docs` to cache the text locally (git-ignored). Telemetry and fees are SIMULATED; only the contract wording is real.",
+  "documents": [
+    {
+      "id": "aws-ec2",
+      "title": "Amazon Compute (EC2) Service Level Agreement",
+      "url": "https://aws.amazon.com/ec2-sla/",
+      "sla_profile": {"checks": ["uptime"]},
+      "monthly_fee_usd": 12000,
+      "expect": "two uptime commitments (99.99% region, 99.5% instance) with their own credit tables"
+    },
+    {
+      "id": "gcp-compute",
+      "title": "Google Compute Engine Service Level Agreement",
+      "url": "https://cloud.google.com/compute/sla",
+      "sla_profile": {"checks": ["uptime"]},
+      "monthly_fee_usd": 12000,
+      "expect": "several uptime commitments by configuration, each with credit tiers"
+    },
+    {
+      "id": "azure-vm",
+      "title": "Microsoft Azure SLA for Virtual Machines",
+      "url": "https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services",
+      "sla_profile": {"checks": ["uptime"]},
+      "monthly_fee_usd": 12000,
+      "expect": "uptime commitments with credit tables, in a long multi-service document"
+    }
+  ]
+}

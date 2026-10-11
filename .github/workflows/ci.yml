@@ -1,0 +1,21 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install -r requirements-full.txt
+      - run: python -m pytest -q
+      - name: Offline evaluation smoke test (generated data, pattern reader)
+        run: |
+          python -m data_gen.generate --n 60 --seed 7 --out data/v2
+          python -m eval.run_eval --data data/v2

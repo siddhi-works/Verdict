@@ -1,0 +1,6 @@
+# Core runtime: the audit engine and the web API (this is what Vercel installs, so keep it small)
+pandas>=2.0
+numpy>=1.26
+pydantic>=2.0
+python-dotenv>=1.0
+starlette>=0.37

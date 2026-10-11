@@ -1,0 +1,21 @@
+services:
+  api:
+    build: .
+    ports: ["8000:8000"]
+    env_file: .env
+    environment:
+      SLA_API_TOKENS: ${SLA_API_TOKENS:?set SLA_API_TOKENS (see .env.example)}
+    volumes:
+      - ledger:/app/ledger
+      - ./data:/app/data:ro
+
+  dashboard:
+    build: .
+    command: ["streamlit", "run", "ui/app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+    ports: ["8501:8501"]
+    volumes:
+      - ledger:/app/ledger
+      - ./data:/app/data:ro
+
+volumes:
+  ledger:

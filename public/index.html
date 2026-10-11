@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verdict | Agentic SLA Auditor</title>
+<style>
+:root {
+  --blue: #27509B; --blue-dk: #1B3A78; --yellow: #FCE500; --ink: #1B2430; --muted: #5F6B7A;
+  --line: #DDE1E8; --canvas: #F5F6F8; --white: #fff; --green: #1A7F4B; --amber: #A85A00; --red: #B42318;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font: 14px/1.5 "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+       color: var(--ink); background: var(--canvas); font-variant-numeric: tabular-nums; }
+h1, h2, h3 { margin: 0; font-weight: 600; }
+button, input, select, textarea { font: inherit; }
+a { color: var(--blue); }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.muted { color: var(--muted); }
+.hidden { display: none !important; }
+
+/* shell */
+.topbar { position: fixed; inset: 0 0 auto 0; height: 52px; z-index: 10; display: flex; align-items: center; gap: 14px;
+          padding: 0 18px; background: var(--white); border-bottom: 1px solid var(--line); }
+.mark { width: 28px; height: 28px; border-radius: 4px; background: var(--blue); border-bottom: 4px solid var(--yellow);
+        color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.topbar .name { font-weight: 600; font-size: 15px; }
+.topbar .sep { width: 1px; height: 22px; background: var(--line); }
+.topbar .grow { flex: 1; }
+.user { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.avatar { width: 26px; height: 26px; border-radius: 50%; background: #E7ECF6; color: var(--blue); font-weight: 600; font-size: 12px;
+          display: flex; align-items: center; justify-content: center; }
+.layout { display: flex; padding-top: 52px; min-height: 100vh; }
+nav { width: 236px; flex: 0 0 236px; background: var(--white); border-right: 1px solid var(--line); padding: 14px 10px;
+      position: sticky; top: 52px; height: calc(100vh - 52px); }
+nav .group { color: var(--muted); font-size: 12px; margin: 4px 12px 8px; }
+nav a { display: block; padding: 8px 12px; margin: 1px 0; border-radius: 0 4px 4px 0; border-left: 3px solid transparent;
+        color: var(--ink); text-decoration: none; font-weight: 500; }
+nav a:hover { background: var(--canvas); }
+nav a.active { background: #E9EFFA; border-left-color: var(--blue); color: var(--blue-dk); font-weight: 600; }
+.usercard { margin: 18px 4px 8px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; }
+.chip-role { display: inline-block; margin-top: 4px; padding: 1px 8px; border-radius: 10px; background: #E9EFFA; color: var(--blue-dk);
+             font-size: 12px; font-weight: 600; }
+.linkbtn { background: none; border: 0; color: var(--muted); padding: 6px 12px; cursor: pointer; }
+main { flex: 1; min-width: 0; padding: 24px 28px 48px; max-width: 1280px; }
+
+/* content */
+.crumbs { color: var(--muted); font-size: 13px; }
+h1.title { font-size: 22px; margin: 2px 0 2px; }
+.sub { color: var(--muted); margin: 0 0 18px; }
+.panel { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; margin-bottom: 16px; }
+.panel h3 { font-size: 15px; margin-bottom: 10px; }
+.stats { display: flex; flex-wrap: wrap; background: var(--white); border: 1px solid var(--line); border-radius: 6px; margin-bottom: 16px; }
+.stat { flex: 1 1 150px; padding: 14px 18px; border-right: 1px solid var(--line); }
+.stat:last-child { border-right: 0; }
+.stat .n { font-size: 24px; font-weight: 600; line-height: 1.2; }
+.stat .l { color: var(--muted); font-size: 13px; }
+.mix { display: flex; height: 10px; border-radius: 5px; overflow: hidden; background: #EEF0F3; margin: 8px 0 10px; }
+.legend { display: flex; gap: 18px; flex-wrap: wrap; color: var(--muted); font-size: 13px; }
+.legend i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; }
+.cols { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; }
+@media (max-width: 980px) { .cols { grid-template-columns: 1fr; } nav { display: none; } main { padding: 18px 14px 40px; } }
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; font-weight: 600; color: var(--muted); font-size: 12.5px; padding: 8px 10px; border-bottom: 1px solid var(--line);
+     background: #FAFBFC; position: sticky; top: 0; }
+td { padding: 9px 10px; border-bottom: 1px solid #EEF0F3; vertical-align: top; }
+tr.row { cursor: pointer; }
+tr.row:hover td { background: #F4F7FC; }
+.scroll { max-height: 440px; overflow: auto; border: 1px solid var(--line); border-radius: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; padding: 1px 9px 1px 7px; border-radius: 4px; font-size: 12.5px; font-weight: 600;
+        border: 1px solid transparent; white-space: nowrap; }
+.chip i { width: 7px; height: 7px; border-radius: 50%; }
+.chip.COMPLIANT { background: #E8F5EE; color: var(--green); border-color: #BFE3CE; } .chip.COMPLIANT i { background: var(--green); }
+.chip.BREACH { background: #FDECEA; color: var(--red); border-color: #F3C2BD; } .chip.BREACH i { background: var(--red); }
+.chip.ESCALATED { background: #FFF3E0; color: var(--amber); border-color: #F1D3A6; } .chip.ESCALATED i { background: var(--amber); }
+dl.facts { display: grid; grid-template-columns: 190px 1fr; gap: 9px 12px; margin: 0; }
+dl.facts dt { color: var(--muted); } dl.facts dd { margin: 0; word-break: break-word; }
+@media (max-width: 640px) { dl.facts { grid-template-columns: 1fr; gap: 2px; } dl.facts dd { margin-bottom: 8px; } }
+.callout { border-left: 3px solid var(--blue); background: #F1F5FC; padding: 10px 14px; border-radius: 0 4px 4px 0; margin-bottom: 12px; }
+.notice { border-left: 3px solid var(--amber); background: #FFF8EC; padding: 8px 12px; border-radius: 0 4px 4px 0; font-size: 13px; margin-bottom: 12px; }
+pre.brief { white-space: pre-wrap; background: #F7F8FA; border: 1px solid var(--line); border-radius: 6px; padding: 12px; margin: 0; font: 13px/1.5 ui-monospace, Consolas, monospace; }
+.contract { white-space: pre-wrap; max-height: 340px; overflow: auto; line-height: 1.55; }
+mark { background: #FFF2A8; color: var(--ink); padding: 0 2px; }
+.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+input, select, textarea { padding: 8px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--white); min-width: 0; }
+label { display: block; font-size: 13px; margin: 10px 0 4px; }
+.btn { background: var(--blue); color: #fff; border: 1px solid var(--blue); border-radius: 4px; padding: 8px 16px; cursor: pointer; font-weight: 600; }
+.btn:hover { background: var(--blue-dk); }
+.btn.secondary { background: var(--white); color: var(--ink); border-color: var(--line); }
+.err { color: var(--red); margin-top: 10px; }
+.bar { height: 8px; border-radius: 4px; background: #EEF0F3; }
+.bar i { display: block; height: 100%; border-radius: 4px; background: var(--blue); }
+
+/* sign in */
+.signin { max-width: 400px; margin: 9vh auto 0; padding: 0 16px; }
+.signin .panel { padding: 24px; }
+.signin input, .signin select { width: 100%; }
+.signin .btn { width: 100%; margin-top: 16px; }
+.foot { text-align: center; font-size: 12.5px; color: var(--muted); margin-top: 12px; }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="mark">V</div><div class="name">Verdict</div><div class="sep"></div>
+  <div class="muted" style="font-size:13px;">Agentic SLA Auditor</div><div class="grow"></div>
+  <div class="user hidden" id="who"></div>
+</div>
+
+<div id="signin" class="signin hidden">
+  <div class="panel">
+    <div class="mark" style="margin-bottom:14px;">V</div>
+    <h2 style="font-size:20px;">Sign in to Verdict</h2>
+    <p class="muted" style="margin:4px 0 6px;">Fleet service contract audits for commercial and finance teams.</p>
+    <form id="signin-form">
+      <label for="who-pick">Sign in as</label>
+      <select id="who-pick"></select>
+      <label for="email">Work email</label>
+      <input id="email" type="email" autocomplete="username" required>
+      <label for="password">Password</label>
+      <input id="password" type="password" autocomplete="current-password" required>
+      <div class="err hidden" id="signin-err"></div>
+      <button class="btn" type="submit">Sign in</button>
+    </form>
+  </div>
+  <p class="foot">Access is limited to authorised staff. Sign-ins and decisions are recorded in the audit log.</p>
+</div>
+
+<div class="layout hidden" id="app">
+  <nav>
+    <div class="group">Workspace</div>
+    <a href="#/overview" data-nav="overview">Overview</a>
+    <a href="#/audits" data-nav="audits">Audits</a>
+    <a href="#/review" data-nav="review">Review queue <span id="queue-count"></span></a>
+    <div class="usercard" id="usercard"></div>
+    <button class="linkbtn" id="signout">Sign out</button>
+  </nav>
+  <main id="view"></main>
+</div>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const chip = (status, label) => `<span class="chip ${esc(status)}"><i></i>${esc(label)}</span>`;
+let account = null;
+
+const store = {
+  get token() { try { return sessionStorage.getItem("verdict.token"); } catch { return null; } },
+  set token(v) { try { v ? sessionStorage.setItem("verdict.token", v) : sessionStorage.removeItem("verdict.token"); } catch {} },
+  get account() { try { return JSON.parse(sessionStorage.getItem("verdict.account")); } catch { return null; } },
+  set account(v) { try { v ? sessionStorage.setItem("verdict.account", JSON.stringify(v)) : sessionStorage.removeItem("verdict.account"); } catch {} },
+};
+
+async function api(path, opts = {}) {
+  const res = await fetch(path, { ...opts, headers: { "Content-Type": "application/json", ...(store.token ? { Authorization: "Bearer " + store.token } : {}), ...(opts.headers || {}) } });
+  let body = {};
+  try { body = await res.json(); } catch {}
+  if (res.status === 401 && path !== "/api/login") { signOut(); throw new Error("Your session has ended. Sign in again."); }
+  if (!res.ok) throw new Error(body.error || "Something went wrong.");
+  return body;
+}
+
+/* ---------- sign in ---------- */
+async function showSignIn() {
+  $("#app").classList.add("hidden"); $("#who").classList.add("hidden"); $("#signin").classList.remove("hidden");
+  const data = await (await fetch("/api/accounts")).json();
+  const pick = $("#who-pick");
+  pick.innerHTML = data.accounts.map((a, i) => `<option value="${i}">${esc(a.name)} (${esc(a.role_label)})</option>`).join("");
+  const fill = () => {
+    const a = data.accounts[Number(pick.value)];
+    $("#email").value = data.prefill ? a.email : "";
+    $("#password").value = data.prefill || "";
+  };
+  if (data.accounts.length > 1) pick.value = "1";
+  pick.onchange = fill; fill();
+  if (!data.prefill) $("#who-pick").closest("form").querySelector("label[for=who-pick]").classList.add("hidden"), pick.classList.add("hidden");
+}
+$("#signin-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  $("#signin-err").classList.add("hidden");
+  try {
+    const r = await api("/api/login", { method: "POST", body: JSON.stringify({ email: $("#email").value, password: $("#password").value }) });
+    store.token = r.token; store.account = r.account; account = r.account;
+    await enterApp();
+  } catch (err) { $("#signin-err").textContent = err.message; $("#signin-err").classList.remove("hidden"); }
+});
+function signOut() { store.token = null; store.account = null; account = null; location.hash = ""; showSignIn(); }
+$("#signout").addEventListener("click", signOut);
+
+async function enterApp() {
+  $("#signin").classList.add("hidden"); $("#app").classList.remove("hidden");
+  const initials = account.name.split(" ").map((p) => p[0]).slice(0, 2).join("").toUpperCase();
+  $("#who").innerHTML = `<span class="avatar">${esc(initials)}</span><span>${esc(account.name)}</span><span class="muted">${esc(account.role_label)}</span>`;
+  $("#who").classList.remove("hidden");
+  $("#usercard").innerHTML = `<b>${esc(account.name)}</b><br><span class="muted">${esc(account.title || "")}</span><br><span class="chip-role">${esc(account.role_label)}</span>`;
+  if (!location.hash) location.hash = "#/overview";
+  route();
+}
+
+/* ---------- pages ---------- */
+const header = (title, crumbs, sub) => `<div class="crumbs">${esc(crumbs)}</div><h1 class="title">${esc(title)}</h1><p class="sub">${esc(sub || "")}</p>`;
+const money0 = (n) => "$" + Math.round(n).toLocaleString("en-US");
+
+async function pageOverview() {
+  const s = await api("/api/summary");
+  const pct = (n) => (100 * n) / Math.max(s.total, 1);
+  $("#queue-count").textContent = `(${s.counts.ESCALATED})`;
+  const maxReason = Math.max(1, ...s.reasons.map((r) => r.count));
+  $("#view").innerHTML = header("Overview", "Workspace", `Hello ${account.name.split(" ")[0]}. Latest audit run: ${s.total} contracts.`) + `
+    <div class="stats">
+      <div class="stat"><div class="n">${s.total}</div><div class="l">Contracts audited</div></div>
+      <div class="stat"><div class="n">${s.counts.COMPLIANT}</div><div class="l">Compliant</div></div>
+      <div class="stat"><div class="n">${s.counts.BREACH}</div><div class="l">Breach</div></div>
+      <div class="stat"><div class="n">${s.counts.ESCALATED}</div><div class="l">Need review</div></div>
+      <div class="stat"><div class="n">${Math.round(100 * s.auto_share)}%</div><div class="l">Decided without a person</div></div>
+      <div class="stat"><div class="n">${esc(money0(s.credits))}</div><div class="l">Credits on automated breaches</div></div>
+    </div>
+    <div class="panel"><h3>Outcome of the latest run</h3>
+      <div class="mix"><span style="width:${pct(s.counts.COMPLIANT)}%;background:var(--green)"></span><span style="width:${pct(s.counts.BREACH)}%;background:var(--red)"></span><span style="width:${pct(s.counts.ESCALATED)}%;background:var(--amber)"></span></div>
+      <div class="legend"><span><i style="background:var(--green)"></i>Compliant ${s.counts.COMPLIANT} (${Math.round(pct(s.counts.COMPLIANT))}%)</span><span><i style="background:var(--red)"></i>Breach ${s.counts.BREACH} (${Math.round(pct(s.counts.BREACH))}%)</span><span><i style="background:var(--amber)"></i>Needs review ${s.counts.ESCALATED} (${Math.round(pct(s.counts.ESCALATED))}%)</span></div>
+    </div>
+    <div class="cols">
+      <div class="panel"><h3>Waiting for review</h3>${table(s.waiting, ["id", "customer", "reason"], ["Contract", "Customer", "Why"])}
+        <p><a class="btn secondary" href="#/review" style="text-decoration:none;display:inline-block;">Open review queue</a></p></div>
+      <div class="panel"><h3>Why contracts need review</h3><table>${s.reasons.map((r) =>
+        `<tr><td>${esc(r.reason)}</td><td style="width:38%"><div class="bar"><i style="width:${100 * r.count / maxReason}%"></i></div></td><td style="width:34px;text-align:right">${r.count}</td></tr>`).join("")}</table></div>
+    </div>
+    <div class="panel"><h3>Largest credits on automated breaches</h3>${table(s.top_credits, ["id", "customer", "credit", "reason"], ["Contract", "Customer", "Credit", "Why"])}</div>`;
+  bindRows();
+}
+
+function table(rows, keys, heads) {
+  if (!rows.length) return '<p class="muted">Nothing to show.</p>';
+  return `<div class="scroll"><table><thead><tr>${heads.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>` +
+    rows.map((r) => `<tr class="row" data-id="${esc(r.id)}">${keys.map((k) => `<td>${k === "status" ? chip(r.status, r.status_label) : esc(r[k])}</td>`).join("")}</tr>`).join("") +
+    "</tbody></table></div>";
+}
+function bindRows() { document.querySelectorAll("tr.row").forEach((tr) => tr.addEventListener("click", () => { location.hash = "#/audits/" + tr.dataset.id; })); }
+
+async function pageAudits(escalatedOnly = false) {
+  const title = escalatedOnly ? "Review queue" : "Audits";
+  $("#view").innerHTML = header(title, "Workspace / " + title,
+    escalatedOnly ? "Contracts the system would not decide on its own. Select one to review it." : "Every contract in the latest run. Select a row to see how it was decided.") + `
+    <div class="filters">
+      ${escalatedOnly ? "" : '<select id="f-status" aria-label="Status"><option value="">All statuses</option><option value="COMPLIANT">Compliant</option><option value="BREACH">Breach</option><option value="ESCALATED">Needs review</option></select>'}
+      <input id="f-q" placeholder="Search contract, customer or reason" style="flex:1;min-width:220px" aria-label="Search">
+    </div><div id="list"></div>`;
+  const load = async () => {
+    const qs = new URLSearchParams();
+    const st = escalatedOnly ? "ESCALATED" : ($("#f-status") ? $("#f-status").value : "");
+    if (st) qs.set("status", st);
+    if ($("#f-q").value.trim()) qs.set("q", $("#f-q").value.trim());
+    const r = await api("/api/audits?" + qs);
+    $("#list").innerHTML = `<p class="muted">${r.count} of ${r.total} contracts</p>` +
+      table(r.rows, ["id", "customer", "status", "reason", "credit"], ["Contract", "Customer", "Status", "Reason", "Credit"]);
+    bindRows();
+  };
+  let timer; $("#f-q").addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(load, 250); });
+  if ($("#f-status")) $("#f-status").addEventListener("change", load);
+  await load();
+}
+
+async function pageDetail(id) {
+  const d = await api("/api/audits/" + encodeURIComponent(id));
+  let text = esc(d.contract_text);
+  [...new Set(d.quotes)].sort((a, b) => b.length - a.length).forEach((q) => { const e = esc(q.trim()); if (e) text = text.split(e).join(`<mark>${e}</mark>`); });
+  const ruling = d.can_rule ? `
+    <div class="panel"><h3>Your ruling</h3>
+      <div class="notice">Demo deployment: rulings are kept only temporarily and may disappear when the service restarts.</div>
+      ${d.suggested ? `<div class="callout">Earlier rulings on this clause pattern (${esc(d.suggested.based_on_rulings)}) chose <b>${esc(d.suggested.reading_id)}</b>. This is a suggestion only.</div>` : ""}
+      <label for="r-reading">Reading that applies</label>
+      <select id="r-reading">${d.reading_ids.map((r) => `<option>${esc(r)}</option>`).join("")}</select>
+      <label for="r-scn">Telemetry to rely on</label>
+      <select id="r-scn"><option value="">No preference</option><option value="strict">Trusted rows only</option><option value="inclusive">Including doubtful rows</option></select>
+      <label for="r-note">Reason (kept in the audit record)</label>
+      <textarea id="r-note" rows="2" style="width:100%"></textarea>
+      <p class="muted" style="font-size:13px;">Recorded as ${esc(account.name)}.</p>
+      <button class="btn" id="r-save">Save ruling</button><div class="err hidden" id="r-err"></div>
+    </div>` : (d.status === "ESCALATED" ? `<div class="callout">Your role can view this case but cannot record rulings. Ask a reviewer or administrator to settle it.</div>` : "");
+  $("#view").innerHTML = header(d.id, "Workspace / Audits / " + d.id, d.customer) + `
+    <div class="panel"><h3>${esc(d.id)} &nbsp; ${chip(d.status, d.status_label)}</h3>
+      <p style="margin:0 0 12px;">${esc(d.reason)}</p>
+      <dl class="facts">${d.facts.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl></div>
+    ${d.readings.length ? `<div class="panel"><h3>Readings of the contract and the telemetry</h3>
+      <p class="muted" style="margin:-4px 0 8px;">A verdict is applied automatically only when every row below gives the same outcome.</p>
+      <div class="scroll"><table><thead><tr><th>Reading</th><th>Uptime target</th><th>Repair limit</th><th>Telemetry used</th><th>Fleet uptime</th><th>Slowest repair (h)</th><th>Outcome</th><th>Credit</th></tr></thead><tbody>
+      ${d.readings.map((r) => `<tr><td>${esc(r.reading)}</td><td>${esc(r.uptime_target)}</td><td>${esc(r.repair_limit)}</td><td>${esc(r.telemetry)}</td><td>${esc(r.fleet_uptime)}</td><td>${esc(r.slowest_repair_h)}</td><td>${esc(r.outcome)}</td><td>${esc(r.credit)}</td></tr>`).join("")}
+      </tbody></table></div>${d.notes.map((n) => `<p class="muted" style="margin:6px 0 0;font-size:13px;">${esc(n)}</p>`).join("")}</div>` : ""}
+    ${d.brief ? `<div class="panel"><h3>Review brief</h3><pre class="brief">${esc(d.brief)}</pre></div>` : ""}
+    ${ruling}
+    <div class="panel"><h3>Contract text, with the cited sentences marked</h3><div class="contract">${text}</div></div>
+    <p><a href="#/audits">Back to audits</a></p>`;
+  const save = $("#r-save");
+  if (save) save.addEventListener("click", async () => {
+    $("#r-err").classList.add("hidden");
+    try {
+      await api(`/api/audits/${encodeURIComponent(d.id)}/ruling`, { method: "POST",
+        body: JSON.stringify({ reading_id: $("#r-reading").value, scenario: $("#r-scn").value, note: $("#r-note").value }) });
+      await pageDetail(id);
+    } catch (err) { $("#r-err").textContent = err.message; $("#r-err").classList.remove("hidden"); }
+  });
+}
+
+/* ---------- router ---------- */
+async function route() {
+  if (!store.token) return showSignIn();
+  account = account || store.account;
+  if (!account) return signOut();
+  const [, page, arg] = location.hash.split("/");
+  document.querySelectorAll("nav a").forEach((a) => a.classList.toggle("active",
+    a.dataset.nav === (page === "review" ? "review" : page === "audits" ? "audits" : "overview")));
+  try {
+    if (page === "audits" && arg) await pageDetail(decodeURIComponent(arg));
+    else if (page === "audits") await pageAudits(false);
+    else if (page === "review") await pageAudits(true);
+    else await pageOverview();
+    window.scrollTo(0, 0);
+  } catch (err) { $("#view").innerHTML = `<div class="panel"><h3>Something went wrong</h3><p>${esc(err.message)}</p></div>`; }
+}
+window.addEventListener("hashchange", route);
+(async () => { if (store.token && store.account) { account = store.account; await enterApp(); } else { showSignIn(); } })();
+</script>
+</body>
+</html>

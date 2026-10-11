@@ -1,0 +1,26 @@
+[
+  {
+    "email": "priya.deshmukh@michelin-sla.example",
+    "name": "Priya Deshmukh",
+    "role": "analyst",
+    "title": "Commercial analyst, Pune",
+    "salt": "e79e09111cf20b154b641a00a240c649",
+    "hash": "d173c36250e91846aedc364fb4423350bc4eb02f07abbfa5b52f53e0a30aabc9"
+  },
+  {
+    "email": "arjun.kulkarni@michelin-sla.example",
+    "name": "Arjun Kulkarni",
+    "role": "reviewer",
+    "title": "Contract reviewer, Pune",
+    "salt": "ec13971b9f8df353bcd58672cf1df019",
+    "hash": "10046d3f26f6445ac0e01321592061b664a6b33b9870e1d7f44584eafa3704d8"
+  },
+  {
+    "email": "camille.laurent@michelin-sla.example",
+    "name": "Camille Laurent",
+    "role": "admin",
+    "title": "Fleet services finance lead",
+    "salt": "f9991934b6c5e6a5ee179534fa67083f",
+    "hash": "2278a0439c3d0332af99b94b41e7aa08b02f48b95f8e6a954100a51492990178"
+  }
+]

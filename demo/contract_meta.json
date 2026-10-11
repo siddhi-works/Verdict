@@ -1,0 +1,1166 @@
+{
+ "V2-001": {
+  "customer": "Orchard Fresh Logistics",
+  "region": "Tamil Nadu, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-002": {
+  "customer": "Nordic Timber Haul",
+  "region": "Occitanie, France",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-003": {
+  "customer": "Baltic Cold Chain",
+  "region": "Tamil Nadu, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-004": {
+  "customer": "Ganga Fleet Services",
+  "region": "Hesse, Germany",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-005": {
+  "customer": "Western Ghats Quarry Transport",
+  "region": "Hesse, Germany",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-006": {
+  "customer": "Danube Parcel Network",
+  "region": "Catalonia, Spain",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-007": {
+  "customer": "Thar Mining Haulage",
+  "region": "Lombardy, Italy",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-008": {
+  "customer": "Sahyadri Transport Co.",
+  "region": "Maharashtra, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-009": {
+  "customer": "Baltic Cold Chain",
+  "region": "Bavaria, Germany",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-010": {
+  "customer": "Malwa Dairy Logistics",
+  "region": "Occitanie, France",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-011": {
+  "customer": "Konkan Express Cargo",
+  "region": "Karnataka, India",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-012": {
+  "customer": "Meridian Coach Lines",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-013": {
+  "customer": "Atlas Municipal Transit",
+  "region": "Lombardy, Italy",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-014": {
+  "customer": "Lombardia Trasporti",
+  "region": "Maharashtra, India",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-015": {
+  "customer": "Iberia Last Mile",
+  "region": "Catalonia, Spain",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-016": {
+  "customer": "Rhone Valley Freight",
+  "region": "Catalonia, Spain",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-017": {
+  "customer": "Pyrenees Tankers",
+  "region": "Gujarat, India",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-018": {
+  "customer": "Atlas Municipal Transit",
+  "region": "Karnataka, India",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-019": {
+  "customer": "Harbourside Container Services",
+  "region": "Hesse, Germany",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-020": {
+  "customer": "Konkan Express Cargo",
+  "region": "Gujarat, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-021": {
+  "customer": "Orchard Fresh Logistics",
+  "region": "Bavaria, Germany",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-022": {
+  "customer": "Danube Parcel Network",
+  "region": "Tamil Nadu, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-023": {
+  "customer": "Lombardia Trasporti",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-024": {
+  "customer": "Ganga Fleet Services",
+  "region": "Tamil Nadu, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-025": {
+  "customer": "Atlas Municipal Transit",
+  "region": "Hesse, Germany",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-026": {
+  "customer": "Rhone Valley Freight",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-027": {
+  "customer": "Deccan Bulk Carriers",
+  "region": "Occitanie, France",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-028": {
+  "customer": "Baltic Cold Chain",
+  "region": "Catalonia, Spain",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-029": {
+  "customer": "Thar Mining Haulage",
+  "region": "Lombardy, Italy",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-030": {
+  "customer": "Rhone Valley Freight",
+  "region": "Maharashtra, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-031": {
+  "customer": "Nordic Timber Haul",
+  "region": "Tamil Nadu, India",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-032": {
+  "customer": "Alpine Haulage GmbH",
+  "region": "Hesse, Germany",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-033": {
+  "customer": "Lombardia Trasporti",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-034": {
+  "customer": "Bluewater Distribution",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-035": {
+  "customer": "Northline Logistics",
+  "region": "Bavaria, Germany",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-036": {
+  "customer": "Nordic Timber Haul",
+  "region": "Karnataka, India",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-037": {
+  "customer": "Rhone Valley Freight",
+  "region": "Maharashtra, India",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-038": {
+  "customer": "Nordic Timber Haul",
+  "region": "Karnataka, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-039": {
+  "customer": "Malwa Dairy Logistics",
+  "region": "Gujarat, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-040": {
+  "customer": "Lombardia Trasporti",
+  "region": "Gujarat, India",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-041": {
+  "customer": "Konkan Express Cargo",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-042": {
+  "customer": "Konkan Express Cargo",
+  "region": "Bavaria, Germany",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-043": {
+  "customer": "Thar Mining Haulage",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-044": {
+  "customer": "Atlas Municipal Transit",
+  "region": "Occitanie, France",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-045": {
+  "customer": "Sahyadri Transport Co.",
+  "region": "Catalonia, Spain",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-046": {
+  "customer": "Rhone Valley Freight",
+  "region": "Bavaria, Germany",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-047": {
+  "customer": "Alpine Haulage GmbH",
+  "region": "Hesse, Germany",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-048": {
+  "customer": "Pyrenees Tankers",
+  "region": "Tamil Nadu, India",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-049": {
+  "customer": "Pyrenees Tankers",
+  "region": "Gujarat, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-050": {
+  "customer": "Danube Parcel Network",
+  "region": "Karnataka, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-051": {
+  "customer": "Orchard Fresh Logistics",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-052": {
+  "customer": "Iberia Last Mile",
+  "region": "Bavaria, Germany",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-053": {
+  "customer": "Sahyadri Transport Co.",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-054": {
+  "customer": "Rhone Valley Freight",
+  "region": "Lombardy, Italy",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-055": {
+  "customer": "Malwa Dairy Logistics",
+  "region": "Occitanie, France",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-056": {
+  "customer": "Atlas Municipal Transit",
+  "region": "Tamil Nadu, India",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-057": {
+  "customer": "Atlas Municipal Transit",
+  "region": "Catalonia, Spain",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-058": {
+  "customer": "Alpine Haulage GmbH",
+  "region": "Tamil Nadu, India",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-059": {
+  "customer": "Kaveri Roadways",
+  "region": "Gujarat, India",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-060": {
+  "customer": "Kaveri Roadways",
+  "region": "Hesse, Germany",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-061": {
+  "customer": "Harbourside Container Services",
+  "region": "Bavaria, Germany",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-062": {
+  "customer": "Harbourside Container Services",
+  "region": "Hesse, Germany",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-063": {
+  "customer": "Sahyadri Transport Co.",
+  "region": "Occitanie, France",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-064": {
+  "customer": "Pyrenees Tankers",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-065": {
+  "customer": "Nordic Timber Haul",
+  "region": "Karnataka, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-066": {
+  "customer": "Bluewater Distribution",
+  "region": "Bavaria, Germany",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-067": {
+  "customer": "Sahyadri Transport Co.",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-068": {
+  "customer": "Nordic Timber Haul",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-069": {
+  "customer": "Sahyadri Transport Co.",
+  "region": "Occitanie, France",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-070": {
+  "customer": "Rhone Valley Freight",
+  "region": "Maharashtra, India",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-071": {
+  "customer": "Orchard Fresh Logistics",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-072": {
+  "customer": "Orchard Fresh Logistics",
+  "region": "Occitanie, France",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-073": {
+  "customer": "Western Ghats Quarry Transport",
+  "region": "Lombardy, Italy",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-074": {
+  "customer": "Sahyadri Transport Co.",
+  "region": "Bavaria, Germany",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-075": {
+  "customer": "Deccan Bulk Carriers",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-076": {
+  "customer": "Sahyadri Transport Co.",
+  "region": "Catalonia, Spain",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-077": {
+  "customer": "Atlas Municipal Transit",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-078": {
+  "customer": "Kaveri Roadways",
+  "region": "Catalonia, Spain",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-079": {
+  "customer": "Lombardia Trasporti",
+  "region": "Karnataka, India",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-080": {
+  "customer": "Danube Parcel Network",
+  "region": "Tamil Nadu, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-081": {
+  "customer": "Bluewater Distribution",
+  "region": "Bavaria, Germany",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-082": {
+  "customer": "Kaveri Roadways",
+  "region": "Catalonia, Spain",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-083": {
+  "customer": "Bluewater Distribution",
+  "region": "Tamil Nadu, India",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-084": {
+  "customer": "Alpine Haulage GmbH",
+  "region": "Catalonia, Spain",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-085": {
+  "customer": "Danube Parcel Network",
+  "region": "Hesse, Germany",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-086": {
+  "customer": "Konkan Express Cargo",
+  "region": "Lombardy, Italy",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-087": {
+  "customer": "Northline Logistics",
+  "region": "Karnataka, India",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-088": {
+  "customer": "Orchard Fresh Logistics",
+  "region": "Karnataka, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-089": {
+  "customer": "Northline Logistics",
+  "region": "Occitanie, France",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-090": {
+  "customer": "Rhone Valley Freight",
+  "region": "Tamil Nadu, India",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-091": {
+  "customer": "Bluewater Distribution",
+  "region": "Tamil Nadu, India",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-092": {
+  "customer": "Bluewater Distribution",
+  "region": "Hesse, Germany",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-093": {
+  "customer": "Malwa Dairy Logistics",
+  "region": "Lombardy, Italy",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-094": {
+  "customer": "Western Ghats Quarry Transport",
+  "region": "Lombardy, Italy",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-095": {
+  "customer": "Pyrenees Tankers",
+  "region": "Occitanie, France",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-096": {
+  "customer": "Western Ghats Quarry Transport",
+  "region": "Maharashtra, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-097": {
+  "customer": "Iberia Last Mile",
+  "region": "Maharashtra, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-098": {
+  "customer": "Konkan Express Cargo",
+  "region": "Hesse, Germany",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-099": {
+  "customer": "Ganga Fleet Services",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-100": {
+  "customer": "Deccan Bulk Carriers",
+  "region": "Tamil Nadu, India",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-101": {
+  "customer": "Orchard Fresh Logistics",
+  "region": "Catalonia, Spain",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-102": {
+  "customer": "Konkan Express Cargo",
+  "region": "Bavaria, Germany",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-103": {
+  "customer": "Rhone Valley Freight",
+  "region": "Bavaria, Germany",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-104": {
+  "customer": "Western Ghats Quarry Transport",
+  "region": "Hesse, Germany",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-105": {
+  "customer": "Alpine Haulage GmbH",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-106": {
+  "customer": "Vindhya Agri Freight",
+  "region": "Gujarat, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-107": {
+  "customer": "Orchard Fresh Logistics",
+  "region": "Hesse, Germany",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-108": {
+  "customer": "Pyrenees Tankers",
+  "region": "Maharashtra, India",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-109": {
+  "customer": "Rhone Valley Freight",
+  "region": "Karnataka, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-110": {
+  "customer": "Ganga Fleet Services",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-111": {
+  "customer": "Kaveri Roadways",
+  "region": "Hesse, Germany",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-112": {
+  "customer": "Konkan Express Cargo",
+  "region": "Gujarat, India",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-113": {
+  "customer": "Malwa Dairy Logistics",
+  "region": "Maharashtra, India",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-114": {
+  "customer": "Vindhya Agri Freight",
+  "region": "Lombardy, Italy",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-115": {
+  "customer": "Orchard Fresh Logistics",
+  "region": "Occitanie, France",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-116": {
+  "customer": "Coromandel Bus Operators",
+  "region": "Hesse, Germany",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-117": {
+  "customer": "Harbourside Container Services",
+  "region": "Hesse, Germany",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-118": {
+  "customer": "Nordic Timber Haul",
+  "region": "Karnataka, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-119": {
+  "customer": "Alpine Haulage GmbH",
+  "region": "Occitanie, France",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-120": {
+  "customer": "Orchard Fresh Logistics",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-121": {
+  "customer": "Lombardia Trasporti",
+  "region": "Bavaria, Germany",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-122": {
+  "customer": "Baltic Cold Chain",
+  "region": "Catalonia, Spain",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-123": {
+  "customer": "Danube Parcel Network",
+  "region": "Catalonia, Spain",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-124": {
+  "customer": "Sahyadri Transport Co.",
+  "region": "Hesse, Germany",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-125": {
+  "customer": "Western Ghats Quarry Transport",
+  "region": "Occitanie, France",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-126": {
+  "customer": "Kaveri Roadways",
+  "region": "Tamil Nadu, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-127": {
+  "customer": "Meridian Coach Lines",
+  "region": "Karnataka, India",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-128": {
+  "customer": "Konkan Express Cargo",
+  "region": "Maharashtra, India",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-129": {
+  "customer": "Malwa Dairy Logistics",
+  "region": "Catalonia, Spain",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-130": {
+  "customer": "Lombardia Trasporti",
+  "region": "Hesse, Germany",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-131": {
+  "customer": "Alpine Haulage GmbH",
+  "region": "Catalonia, Spain",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-132": {
+  "customer": "Kaveri Roadways",
+  "region": "Catalonia, Spain",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-133": {
+  "customer": "Sahyadri Transport Co.",
+  "region": "Occitanie, France",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-134": {
+  "customer": "Kaveri Roadways",
+  "region": "Gujarat, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-135": {
+  "customer": "Coromandel Bus Operators",
+  "region": "Maharashtra, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-136": {
+  "customer": "Meridian Coach Lines",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-137": {
+  "customer": "Malwa Dairy Logistics",
+  "region": "Karnataka, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-138": {
+  "customer": "Coromandel Bus Operators",
+  "region": "Hesse, Germany",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-139": {
+  "customer": "Baltic Cold Chain",
+  "region": "Hesse, Germany",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-140": {
+  "customer": "Rhone Valley Freight",
+  "region": "Gujarat, India",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-141": {
+  "customer": "Rhone Valley Freight",
+  "region": "Karnataka, India",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-142": {
+  "customer": "Rhone Valley Freight",
+  "region": "Occitanie, France",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-143": {
+  "customer": "Thar Mining Haulage",
+  "region": "Catalonia, Spain",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-144": {
+  "customer": "Orchard Fresh Logistics",
+  "region": "Hesse, Germany",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-145": {
+  "customer": "Kaveri Roadways",
+  "region": "Tamil Nadu, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-146": {
+  "customer": "Sahyadri Transport Co.",
+  "region": "Lombardy, Italy",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-147": {
+  "customer": "Orchard Fresh Logistics",
+  "region": "Maharashtra, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-148": {
+  "customer": "Western Ghats Quarry Transport",
+  "region": "Bavaria, Germany",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-149": {
+  "customer": "Konkan Express Cargo",
+  "region": "Hesse, Germany",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-150": {
+  "customer": "Orchard Fresh Logistics",
+  "region": "Tamil Nadu, India",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-151": {
+  "customer": "Meridian Coach Lines",
+  "region": "Gujarat, India",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-152": {
+  "customer": "Atlas Municipal Transit",
+  "region": "Lombardy, Italy",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-153": {
+  "customer": "Iberia Last Mile",
+  "region": "Catalonia, Spain",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-154": {
+  "customer": "Sahyadri Transport Co.",
+  "region": "Karnataka, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-155": {
+  "customer": "Ganga Fleet Services",
+  "region": "Catalonia, Spain",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-156": {
+  "customer": "Deccan Bulk Carriers",
+  "region": "Gujarat, India",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-157": {
+  "customer": "Kaveri Roadways",
+  "region": "Maharashtra, India",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-158": {
+  "customer": "Deccan Bulk Carriers",
+  "region": "Gujarat, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-159": {
+  "customer": "Sahyadri Transport Co.",
+  "region": "Bavaria, Germany",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-160": {
+  "customer": "Northline Logistics",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-161": {
+  "customer": "Thar Mining Haulage",
+  "region": "Karnataka, India",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-162": {
+  "customer": "Iberia Last Mile",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-163": {
+  "customer": "Kaveri Roadways",
+  "region": "Hesse, Germany",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-164": {
+  "customer": "Baltic Cold Chain",
+  "region": "Maharashtra, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-165": {
+  "customer": "Ganga Fleet Services",
+  "region": "Maharashtra, India",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-166": {
+  "customer": "Lombardia Trasporti",
+  "region": "Catalonia, Spain",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-167": {
+  "customer": "Lombardia Trasporti",
+  "region": "Bavaria, Germany",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-168": {
+  "customer": "Konkan Express Cargo",
+  "region": "Bavaria, Germany",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-169": {
+  "customer": "Konkan Express Cargo",
+  "region": "Tamil Nadu, India",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-170": {
+  "customer": "Kaveri Roadways",
+  "region": "Catalonia, Spain",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-171": {
+  "customer": "Malwa Dairy Logistics",
+  "region": "Hesse, Germany",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-172": {
+  "customer": "Thar Mining Haulage",
+  "region": "Catalonia, Spain",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-173": {
+  "customer": "Vindhya Agri Freight",
+  "region": "Auvergne-Rhone-Alpes, France",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-174": {
+  "customer": "Vindhya Agri Freight",
+  "region": "Bavaria, Germany",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-175": {
+  "customer": "Bluewater Distribution",
+  "region": "Bavaria, Germany",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-176": {
+  "customer": "Thar Mining Haulage",
+  "region": "Karnataka, India",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-177": {
+  "customer": "Thar Mining Haulage",
+  "region": "Gujarat, India",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-178": {
+  "customer": "Kaveri Roadways",
+  "region": "Tamil Nadu, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-179": {
+  "customer": "Pyrenees Tankers",
+  "region": "Catalonia, Spain",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-180": {
+  "customer": "Nordic Timber Haul",
+  "region": "Catalonia, Spain",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-181": {
+  "customer": "Deccan Bulk Carriers",
+  "region": "Catalonia, Spain",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-182": {
+  "customer": "Baltic Cold Chain",
+  "region": "Hesse, Germany",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-183": {
+  "customer": "Harbourside Container Services",
+  "region": "Catalonia, Spain",
+  "title": "Urban delivery fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-184": {
+  "customer": "Thar Mining Haulage",
+  "region": "Karnataka, India",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-185": {
+  "customer": "Ganga Fleet Services",
+  "region": "Occitanie, France",
+  "title": "Mining haul fleet service agreement",
+  "period": "September 2026"
+ },
+ "V2-186": {
+  "customer": "Sahyadri Transport Co.",
+  "region": "Maharashtra, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-187": {
+  "customer": "Danube Parcel Network",
+  "region": "Hesse, Germany",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-188": {
+  "customer": "Bluewater Distribution",
+  "region": "Gujarat, India",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-189": {
+  "customer": "Harbourside Container Services",
+  "region": "Lombardy, Italy",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-190": {
+  "customer": "Konkan Express Cargo",
+  "region": "Occitanie, France",
+  "title": "Tyre and uptime services agreement",
+  "period": "September 2026"
+ },
+ "V2-191": {
+  "customer": "Kaveri Roadways",
+  "region": "Lombardy, Italy",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ },
+ "V2-192": {
+  "customer": "Orchard Fresh Logistics",
+  "region": "Lombardy, Italy",
+  "title": "Fleet service level agreement",
+  "period": "September 2026"
+ },
+ "V2-193": {
+  "customer": "Bluewater Distribution",
+  "region": "Tamil Nadu, India",
+  "title": "Bus fleet availability agreement",
+  "period": "September 2026"
+ },
+ "V2-194": {
+  "customer": "Baltic Cold Chain",
+  "region": "Tamil Nadu, India",
+  "title": "Managed tyre programme, long-haul fleet",
+  "period": "September 2026"
+ }
+}
