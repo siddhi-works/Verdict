@@ -103,22 +103,29 @@ Then import the GitHub repo in Vercel (framework preset: Other, no build command
 Limits of the deployment: it serves the bundled results and cannot run new audits; rulings are written to the function's temp
 directory, so they are not permanent. `requirements.txt` is deliberately small (the Vercel install); local work uses `requirements-full.txt`.
 
-## Console accounts
+## The web app and its roles
 
-The console (`streamlit run ui/app.py`) signs in with fictional staff accounts. Passwords are stored only as salted PBKDF2 hashes
-in `ui/users.json`; create or reset them with `python -m ui.seed_users` (set `SLA_UI_PASSWORD` to choose the password, otherwise the
-local-demo default printed by the script is used).
+The web app (`public/`, deployed on Vercel) is organised around how the system operates, not around a table of results.
 
-| Account | Role | Can |
-|---|---|---|
-| priya.deshmukh@michelin-sla.example | Analyst | View audits, evidence, telemetry |
-| arjun.kulkarni@michelin-sla.example | Reviewer | Everything above, and record rulings on escalations |
-| camille.laurent@michelin-sla.example | Administrator | Everything above, and run audits |
+- **Workbench:** paste or load a contract, choose a fleet's telemetry, and run the real pipeline. Seven stages each show what they
+  looked at and produced: read, check quotes, fan out readings, judge telemetry, test every reading on every view, decide, seal.
+  Edit a number and run again to see the decision move.
+- **Contracts:** every audited contract, opened as the same pipeline view plus a live replay of its sealed proof, and a
+  "benchmark check" saying what the correct outcome was.
+- **Overview:** results for the evaluation set, with an explicit explanation of why many contracts are sent for review (the set
+  is built to be hard; the number that matters is wrong automatic verdicts).
 
-For local demos the sign-in page offers a "Sign in as" picker that fills in the email and (masked) password, so one click signs in. Set `SLA_UI_AUTOFILL=0` to turn this off for anything shared.
+Each account does a different job, and the pages and permissions differ:
 
-The signed-in person's name is recorded as the actor on every ruling in the audit ledger. There is no lockout or single sign-on; this is
-a local demo login, not production authentication.
+| Account | Role | Lands on | Does | Cannot |
+|---|---|---|---|---|
+| priya.deshmukh@michelin-sla.example | Analyst | Workbench | Runs and inspects audits | Settle cases, approve money |
+| arjun.kulkarni@michelin-sla.example | Reviewer | Review queue | Settles escalations (which reading governs) | Approve money |
+| camille.laurent@michelin-sla.example | Administrator | Approvals | Approves credit memos needing commercial review; System page (live ledger check, guardrails, evidence) | Settle escalations (separation of duties) |
+
+Passwords are stored only as salted PBKDF2 hashes in `ui/users.json`; create or reset the accounts with `python -m ui.seed_users`
+(`SLA_UI_PASSWORD` sets the password). The sign-in page prefills the demo password; set `SLA_UI_AUTOFILL=0` to turn that off. This is
+a demo login: no lockout, no single sign-on.
 
 ## Architecture
 

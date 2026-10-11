@@ -30,10 +30,10 @@ def test_hashes_are_salted():
     assert hash_password("same", "00" * 16) != hash_password("same", "11" * 16)
 
 
-def test_role_permissions():
-    assert not can("analyst", "rule") and not can("analyst", "run")
-    assert can("reviewer", "rule") and not can("reviewer", "run")
-    assert can("admin", "rule") and can("admin", "run")
+def test_role_permissions_are_separate_jobs():
+    assert can("analyst", "analyze") and not can("analyst", "rule") and not can("analyst", "approve")
+    assert can("reviewer", "rule") and not can("reviewer", "approve") and not can("reviewer", "run")
+    assert can("admin", "approve") and can("admin", "run") and not can("admin", "rule")  # separation of duties
 
 
 def sign_in(email: str, password: str) -> AppTest:

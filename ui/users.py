@@ -4,10 +4,11 @@ ui/users.py
 Staff accounts for the console. Passwords are stored as salted PBKDF2-SHA256 hashes in ui/users.json,
 never in plain text. Create or reset the accounts with:  python -m ui.seed_users
 
-Roles decide what a person can do:
-  analyst   view audits, evidence and telemetry
-  reviewer  everything an analyst can do, and record rulings on escalations
-  administrator  everything a reviewer can do, and run audits
+Roles are different jobs, not different permission levels:
+  analyst        runs and inspects audits in the workbench; cannot settle escalations or approve money
+  reviewer       settles escalations (chooses which reading governs); does not approve money
+  administrator  approves credit memos that need commercial review, and oversees the system; does not settle
+                 escalations (separation of duties: the person who approves a payout did not decide the case)
 """
 from __future__ import annotations
 
@@ -21,7 +22,9 @@ USERS_PATH = Path(__file__).with_name("users.json")
 ITERATIONS = 200_000
 
 ROLE_LABEL = {"analyst": "Analyst", "reviewer": "Reviewer", "admin": "Administrator"}
-PERMISSIONS = {"analyst": set(), "reviewer": {"rule"}, "admin": {"rule", "run"}}
+PERMISSIONS = {"analyst": {"analyze"}, "reviewer": {"analyze", "rule"}, "admin": {"analyze", "approve", "run"}}
+# the page each role lands on after signing in
+HOME = {"analyst": "workbench", "reviewer": "review", "admin": "approvals"}
 
 
 def hash_password(password: str, salt_hex: str, iterations: int = ITERATIONS) -> str:

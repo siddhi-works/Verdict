@@ -1,0 +1,251 @@
+{
+ "n": 194,
+ "engine": {
+  "accuracy": 0.9432989690721649,
+  "wrong_automatic": 0,
+  "over_escalated": 11,
+  "escalation_rate": 0.3711340206185567
+ },
+ "legacy": {
+  "accuracy": 0.5257731958762887,
+  "wrong_automatic": 28,
+  "over_escalated": 64,
+  "escalation_rate": 0.5618556701030928
+ },
+ "confusion_engine": {
+  "COMPLIANT": {
+   "COMPLIANT": 67,
+   "BREACH": 0,
+   "ESCALATED": 4
+  },
+  "BREACH": {
+   "COMPLIANT": 0,
+   "BREACH": 55,
+   "ESCALATED": 7
+  },
+  "ESCALATED": {
+   "COMPLIANT": 0,
+   "BREACH": 0,
+   "ESCALATED": 61
+  }
+ },
+ "confusion_legacy": {
+  "COMPLIANT": {
+   "COMPLIANT": 26,
+   "BREACH": 12,
+   "ESCALATED": 33
+  },
+  "BREACH": {
+   "COMPLIANT": 0,
+   "BREACH": 31,
+   "ESCALATED": 31
+  },
+  "ESCALATED": {
+   "COMPLIANT": 16,
+   "BREACH": 0,
+   "ESCALATED": 45
+  }
+ },
+ "categories": [
+  {
+   "category": "business_days",
+   "n": 6,
+   "correct": 6,
+   "wrong_automatic": 0,
+   "expected": "ESCALATED"
+  },
+  {
+   "category": "clean_breach_repair",
+   "n": 10,
+   "correct": 9,
+   "wrong_automatic": 0,
+   "expected": "BREACH"
+  },
+  {
+   "category": "clean_breach_uptime",
+   "n": 10,
+   "correct": 10,
+   "wrong_automatic": 0,
+   "expected": "BREACH"
+  },
+  {
+   "category": "clean_compliant",
+   "n": 15,
+   "correct": 15,
+   "wrong_automatic": 0,
+   "expected": "COMPLIANT"
+  },
+  {
+   "category": "contradiction_decisive",
+   "n": 15,
+   "correct": 15,
+   "wrong_automatic": 0,
+   "expected": "ESCALATED"
+  },
+  {
+   "category": "contradiction_moot_breach",
+   "n": 12,
+   "correct": 11,
+   "wrong_automatic": 0,
+   "expected": "BREACH"
+  },
+  {
+   "category": "contradiction_moot_compliant",
+   "n": 10,
+   "correct": 10,
+   "wrong_automatic": 0,
+   "expected": "COMPLIANT"
+  },
+  {
+   "category": "dirty_flip",
+   "n": 10,
+   "correct": 10,
+   "wrong_automatic": 0,
+   "expected": "ESCALATED"
+  },
+  {
+   "category": "dirty_robust",
+   "n": 12,
+   "correct": 12,
+   "wrong_automatic": 0,
+   "expected": "COMPLIANT"
+  },
+  {
+   "category": "mostly_corrupt",
+   "n": 6,
+   "correct": 6,
+   "wrong_automatic": 0,
+   "expected": "ESCALATED"
+  },
+  {
+   "category": "no_telemetry",
+   "n": 8,
+   "correct": 8,
+   "wrong_automatic": 0,
+   "expected": "ESCALATED"
+  },
+  {
+   "category": "noncritical_slow_ok",
+   "n": 12,
+   "correct": 12,
+   "wrong_automatic": 0,
+   "expected": "COMPLIANT"
+  },
+  {
+   "category": "planned_maintenance_excluded",
+   "n": 8,
+   "correct": 8,
+   "wrong_automatic": 0,
+   "expected": "COMPLIANT"
+  },
+  {
+   "category": "precedence_same_sentence",
+   "n": 8,
+   "correct": 8,
+   "wrong_automatic": 0,
+   "expected": "BREACH"
+  },
+  {
+   "category": "precedence_separate_clause",
+   "n": 8,
+   "correct": 0,
+   "wrong_automatic": 0,
+   "expected": "BREACH"
+  },
+  {
+   "category": "response_vs_resolution",
+   "n": 10,
+   "correct": 9,
+   "wrong_automatic": 0,
+   "expected": "COMPLIANT"
+  },
+  {
+   "category": "vague_both",
+   "n": 8,
+   "correct": 8,
+   "wrong_automatic": 0,
+   "expected": "ESCALATED"
+  },
+  {
+   "category": "vague_repair_uptime_breached",
+   "n": 8,
+   "correct": 8,
+   "wrong_automatic": 0,
+   "expected": "BREACH"
+  },
+  {
+   "category": "vague_repair_uptime_ok",
+   "n": 8,
+   "correct": 8,
+   "wrong_automatic": 0,
+   "expected": "ESCALATED"
+  },
+  {
+   "category": "words_and_days",
+   "n": 10,
+   "correct": 10,
+   "wrong_automatic": 0,
+   "expected": "COMPLIANT"
+  }
+ ],
+ "ablation": [
+  {
+   "variant": "full system",
+   "accuracy": 0.9432989690721649,
+   "wrong_automatic": 0,
+   "over_escalated": 11,
+   "escalation_rate": 0.3711340206185567
+  },
+  {
+   "variant": "- envelope (take the first reading only)",
+   "accuracy": 0.9020618556701031,
+   "wrong_automatic": 19,
+   "over_escalated": 0,
+   "escalation_rate": 0.23711340206185566
+  },
+  {
+   "variant": "- data views (trust every parseable row)",
+   "accuracy": 0.9020618556701031,
+   "wrong_automatic": 8,
+   "over_escalated": 11,
+   "escalation_rate": 0.32989690721649484
+  },
+  {
+   "variant": "- scope filter (check all events, not just critical)",
+   "accuracy": 0.8814432989690721,
+   "wrong_automatic": 11,
+   "over_escalated": 12,
+   "escalation_rate": 0.37628865979381443
+  },
+  {
+   "variant": "- precedence handling",
+   "accuracy": 0.9020618556701031,
+   "wrong_automatic": 0,
+   "over_escalated": 19,
+   "escalation_rate": 0.41237113402061853
+  },
+  {
+   "variant": "- vague-wording handling",
+   "accuracy": 0.9432989690721649,
+   "wrong_automatic": 0,
+   "over_escalated": 11,
+   "escalation_rate": 0.3711340206185567
+  }
+ ],
+ "fault_injection": [
+  {
+   "variant": "With quote verifier",
+   "accuracy": 0.31443298969072164,
+   "wrong_automatic": 0,
+   "over_escalated": 133,
+   "escalation_rate": 1.0
+  },
+  {
+   "variant": "Without quote verifier",
+   "accuracy": 0.7680412371134021,
+   "wrong_automatic": 31,
+   "over_escalated": 14,
+   "escalation_rate": 0.33505154639175255
+  }
+ ]
+}

@@ -32,7 +32,7 @@ a { color: var(--blue); }
           display: flex; align-items: center; justify-content: center; }
 .layout { display: flex; padding-top: 52px; min-height: 100vh; }
 nav { width: 236px; flex: 0 0 236px; background: var(--white); border-right: 1px solid var(--line); padding: 14px 10px;
-      position: sticky; top: 52px; height: calc(100vh - 52px); }
+      position: sticky; top: 52px; height: calc(100vh - 52px); overflow: auto; }
 nav .group { color: var(--muted); font-size: 12px; margin: 4px 12px 8px; }
 nav a { display: block; padding: 8px 12px; margin: 1px 0; border-radius: 0 4px 4px 0; border-left: 3px solid transparent;
         color: var(--ink); text-decoration: none; font-weight: 500; }
@@ -41,13 +41,14 @@ nav a.active { background: #E9EFFA; border-left-color: var(--blue); color: var(-
 .usercard { margin: 18px 4px 8px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; }
 .chip-role { display: inline-block; margin-top: 4px; padding: 1px 8px; border-radius: 10px; background: #E9EFFA; color: var(--blue-dk);
              font-size: 12px; font-weight: 600; }
+.jobnote { margin: 8px 4px; font-size: 12.5px; color: var(--muted); }
 .linkbtn { background: none; border: 0; color: var(--muted); padding: 6px 12px; cursor: pointer; }
-main { flex: 1; min-width: 0; padding: 24px 28px 48px; max-width: 1280px; }
+main { flex: 1; min-width: 0; padding: 24px 28px 48px; max-width: 1320px; }
 
 /* content */
 .crumbs { color: var(--muted); font-size: 13px; }
 h1.title { font-size: 22px; margin: 2px 0 2px; }
-.sub { color: var(--muted); margin: 0 0 18px; }
+.sub { color: var(--muted); margin: 0 0 18px; max-width: 78ch; }
 .panel { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; margin-bottom: 16px; }
 .panel h3 { font-size: 15px; margin-bottom: 10px; }
 .stats { display: flex; flex-wrap: wrap; background: var(--white); border: 1px solid var(--line); border-radius: 6px; margin-bottom: 16px; }
@@ -59,37 +60,69 @@ h1.title { font-size: 22px; margin: 2px 0 2px; }
 .legend { display: flex; gap: 18px; flex-wrap: wrap; color: var(--muted); font-size: 13px; }
 .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; }
 .cols { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; }
-@media (max-width: 980px) { .cols { grid-template-columns: 1fr; } nav { display: none; } main { padding: 18px 14px 40px; } }
+.cols.work { grid-template-columns: minmax(300px, 0.9fr) 1.3fr; align-items: start; }
+@media (max-width: 1060px) { .cols, .cols.work { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { nav { display: none; } main { padding: 18px 14px 40px; } }
 table { width: 100%; border-collapse: collapse; }
 th { text-align: left; font-weight: 600; color: var(--muted); font-size: 12.5px; padding: 8px 10px; border-bottom: 1px solid var(--line);
      background: #FAFBFC; position: sticky; top: 0; }
 td { padding: 9px 10px; border-bottom: 1px solid #EEF0F3; vertical-align: top; }
 tr.row { cursor: pointer; }
 tr.row:hover td { background: #F4F7FC; }
-.scroll { max-height: 440px; overflow: auto; border: 1px solid var(--line); border-radius: 6px; }
+.scroll { max-height: 460px; overflow: auto; border: 1px solid var(--line); border-radius: 6px; }
+.scroll.tall { max-height: 640px; }
 .chip { display: inline-flex; align-items: center; gap: 6px; padding: 1px 9px 1px 7px; border-radius: 4px; font-size: 12.5px; font-weight: 600;
         border: 1px solid transparent; white-space: nowrap; }
 .chip i { width: 7px; height: 7px; border-radius: 50%; }
 .chip.COMPLIANT { background: #E8F5EE; color: var(--green); border-color: #BFE3CE; } .chip.COMPLIANT i { background: var(--green); }
 .chip.BREACH { background: #FDECEA; color: var(--red); border-color: #F3C2BD; } .chip.BREACH i { background: var(--red); }
 .chip.ESCALATED { background: #FFF3E0; color: var(--amber); border-color: #F1D3A6; } .chip.ESCALATED i { background: var(--amber); }
+.chip.plain { background: #EEF0F3; color: var(--muted); border-color: var(--line); } .chip.plain i { background: var(--muted); }
 dl.facts { display: grid; grid-template-columns: 190px 1fr; gap: 9px 12px; margin: 0; }
 dl.facts dt { color: var(--muted); } dl.facts dd { margin: 0; word-break: break-word; }
 @media (max-width: 640px) { dl.facts { grid-template-columns: 1fr; gap: 2px; } dl.facts dd { margin-bottom: 8px; } }
-.callout { border-left: 3px solid var(--blue); background: #F1F5FC; padding: 10px 14px; border-radius: 0 4px 4px 0; margin-bottom: 12px; }
+.callout { border-left: 3px solid var(--blue); background: #F1F5FC; padding: 10px 14px; border-radius: 0 4px 4px 0; margin-bottom: 14px; }
+.callout.ok { border-left-color: var(--green); background: #EEF8F2; }
+.callout.warn { border-left-color: var(--amber); background: #FFF8EC; }
 .notice { border-left: 3px solid var(--amber); background: #FFF8EC; padding: 8px 12px; border-radius: 0 4px 4px 0; font-size: 13px; margin-bottom: 12px; }
 pre.brief { white-space: pre-wrap; background: #F7F8FA; border: 1px solid var(--line); border-radius: 6px; padding: 12px; margin: 0; font: 13px/1.5 ui-monospace, Consolas, monospace; }
 .contract { white-space: pre-wrap; max-height: 340px; overflow: auto; line-height: 1.55; }
+textarea.editor { width: 100%; min-height: 330px; font: 13px/1.5 ui-monospace, Consolas, monospace; resize: vertical; }
 mark { background: #FFF2A8; color: var(--ink); padding: 0 2px; }
 .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
 input, select, textarea { padding: 8px 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--white); min-width: 0; }
 label { display: block; font-size: 13px; margin: 10px 0 4px; }
 .btn { background: var(--blue); color: #fff; border: 1px solid var(--blue); border-radius: 4px; padding: 8px 16px; cursor: pointer; font-weight: 600; }
 .btn:hover { background: var(--blue-dk); }
+.btn:disabled { opacity: .6; cursor: default; }
 .btn.secondary { background: var(--white); color: var(--ink); border-color: var(--line); }
+.btn.danger { background: var(--white); color: var(--red); border-color: #F3C2BD; }
 .err { color: var(--red); margin-top: 10px; }
 .bar { height: 8px; border-radius: 4px; background: #EEF0F3; }
 .bar i { display: block; height: 100%; border-radius: 4px; background: var(--blue); }
+
+/* pipeline stepper: the stages really are a sequence */
+.verdict { display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap; }
+.verdict .what { flex: 1; min-width: 240px; }
+.stage { display: grid; grid-template-columns: 34px 1fr; gap: 12px; margin-bottom: 10px; }
+.stage .num { width: 28px; height: 28px; border-radius: 50%; background: var(--white); border: 2px solid var(--blue); color: var(--blue-dk);
+              font-weight: 600; display: flex; align-items: center; justify-content: center; margin-top: 12px; }
+.stage .card { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: 10px 14px; }
+.stage .head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.stage .head b { font-size: 14.5px; }
+.stage .ms { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
+.stage .sum { margin: 2px 0 4px; }
+.stage details > summary { cursor: pointer; color: var(--blue); font-size: 13px; margin-top: 4px; }
+.stage details[open] > summary { margin-bottom: 8px; }
+.stage.final .num { background: var(--blue); color: #fff; }
+.mini { font-size: 13px; }
+.mini td, .mini th { padding: 6px 8px; }
+.readers { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px; }
+@media (max-width: 700px) { .readers { grid-template-columns: 1fr; } }
+.reader { border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; font-size: 13px; }
+.q { color: var(--muted); font-style: italic; }
+.checks div { font-size: 13px; padding: 1px 0; }
+.ok-t { color: var(--green); font-weight: 600; } .no-t { color: var(--red); font-weight: 600; }
 
 /* sign in */
 .signin { max-width: 400px; margin: 9vh auto 0; padding: 0 16px; }
@@ -128,10 +161,9 @@ label { display: block; font-size: 13px; margin: 10px 0 4px; }
 <div class="layout hidden" id="app">
   <nav>
     <div class="group">Workspace</div>
-    <a href="#/overview" data-nav="overview">Overview</a>
-    <a href="#/audits" data-nav="audits">Audits</a>
-    <a href="#/review" data-nav="review">Review queue <span id="queue-count"></span></a>
+    <div id="navlinks"></div>
     <div class="usercard" id="usercard"></div>
+    <div class="jobnote" id="jobnote"></div>
     <button class="linkbtn" id="signout">Sign out</button>
   </nav>
   <main id="view"></main>
@@ -141,7 +173,21 @@ label { display: block; font-size: 13px; margin: 10px 0 4px; }
 const $ = (s) => document.querySelector(s);
 const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const chip = (status, label) => `<span class="chip ${esc(status)}"><i></i>${esc(label)}</span>`;
+const money0 = (n) => "$" + Math.round(n).toLocaleString("en-US");
 let account = null;
+
+const SCENARIO = {
+  clean_compliant: "Clean contract", clean_breach_uptime: "Uptime missed", clean_breach_repair: "Repair time missed",
+  noncritical_slow_ok: "Slow minor repairs only", contradiction_moot_breach: "Conflicting clauses, same outcome (breach)",
+  contradiction_moot_compliant: "Conflicting clauses, same outcome (compliant)", contradiction_decisive: "Conflicting clauses that decide the outcome",
+  precedence_same_sentence: "Override clause, same sentence", precedence_separate_clause: "Override clause, separate sentence",
+  vague_both: "Vague wording throughout", vague_repair_uptime_breached: "Vague repair clause, uptime missed",
+  vague_repair_uptime_ok: "Vague repair clause, uptime met", no_telemetry: "No telemetry", dirty_robust: "Dirty telemetry, same outcome",
+  dirty_flip: "Dirty telemetry decides the outcome", mostly_corrupt: "Mostly corrupt telemetry", words_and_days: "Numbers in words or days",
+  planned_maintenance_excluded: "Planned maintenance excluded", business_days: "Business-day wording",
+  response_vs_resolution: "Response time vs repair time",
+};
+const scenario = (c) => SCENARIO[c] || c || "";
 
 const store = {
   get token() { try { return sessionStorage.getItem("verdict.token"); } catch { return null; } },
@@ -158,6 +204,18 @@ async function api(path, opts = {}) {
   if (!res.ok) throw new Error(body.error || "Something went wrong.");
   return body;
 }
+
+/* ---------- roles: three different jobs ---------- */
+const ROLE_NAV = {
+  analyst: [["workbench", "Workbench"], ["contracts", "Contracts"], ["overview", "Overview"]],
+  reviewer: [["review", "Review queue"], ["contracts", "Contracts"], ["workbench", "Workbench"], ["overview", "Overview"]],
+  admin: [["approvals", "Approvals"], ["system", "System"], ["contracts", "Contracts"], ["overview", "Overview"]],
+};
+const ROLE_JOB = {
+  analyst: "Your job: run contracts through the pipeline and inspect how each verdict was reached.",
+  reviewer: "Your job: settle the cases the system would not decide, by choosing which reading governs.",
+  admin: "Your job: approve credit memos that need commercial review, and oversee the system's controls.",
+};
 
 /* ---------- sign in ---------- */
 async function showSignIn() {
@@ -181,7 +239,7 @@ async function showSignIn() {
   };
   if (data.accounts.length > 1) pick.value = "1";
   pick.onchange = fill; fill();
-  if (!data.prefill) $("#who-pick").closest("form").querySelector("label[for=who-pick]").classList.add("hidden"), pick.classList.add("hidden");
+  if (!data.prefill) { document.querySelector("label[for=who-pick]").classList.add("hidden"); pick.classList.add("hidden"); }
 }
 $("#signin-form").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -189,6 +247,7 @@ $("#signin-form").addEventListener("submit", async (e) => {
   try {
     const r = await api("/api/login", { method: "POST", body: JSON.stringify({ email: $("#email").value, password: $("#password").value }) });
     store.token = r.token; store.account = r.account; account = r.account;
+    location.hash = "#/" + account.home;
     await enterApp();
   } catch (err) { $("#signin-err").textContent = err.message; $("#signin-err").classList.remove("hidden"); }
 });
@@ -201,20 +260,135 @@ async function enterApp() {
   $("#who").innerHTML = `<span class="avatar">${esc(initials)}</span><span>${esc(account.name)}</span><span class="muted">${esc(account.role_label)}</span>`;
   $("#who").classList.remove("hidden");
   $("#usercard").innerHTML = `<b>${esc(account.name)}</b><br><span class="muted">${esc(account.title || "")}</span><br><span class="chip-role">${esc(account.role_label)}</span>`;
-  if (!location.hash) location.hash = "#/overview";
+  $("#jobnote").textContent = ROLE_JOB[account.role] || "";
+  $("#navlinks").innerHTML = (ROLE_NAV[account.role] || ROLE_NAV.analyst).map(([k, l]) => `<a href="#/${k}" data-nav="${k}">${esc(l)}</a>`).join("");
+  if (!location.hash) location.hash = "#/" + account.home;
   route();
 }
 
-/* ---------- pages ---------- */
 const header = (title, crumbs, sub) => `<div class="crumbs">${esc(crumbs)}</div><h1 class="title">${esc(title)}</h1><p class="sub">${esc(sub || "")}</p>`;
-const money0 = (n) => "$" + Math.round(n).toLocaleString("en-US");
+function table(rows, keys, heads, opts = {}) {
+  if (!rows.length) return '<p class="muted">Nothing to show.</p>';
+  return `<div class="scroll ${opts.tall ? "tall" : ""}"><table><thead><tr>${heads.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>` +
+    rows.map((r) => `<tr class="row" data-id="${esc(r.id)}">${keys.map((k) => `<td>${
+      k === "status" ? chip(r.status, r.status_label) : k === "scenario" ? esc(scenario(r.scenario)) : esc(r[k])}</td>`).join("")}</tr>`).join("") +
+    "</tbody></table></div>";
+}
+function bindRows(base = "#/contracts/") { document.querySelectorAll("tr.row").forEach((tr) => tr.addEventListener("click", () => { location.hash = base + tr.dataset.id; })); }
 
+/* ---------- the pipeline, stage by stage: this is the product ---------- */
+function stageBody(s) {
+  const q = (t) => `<span class="q">&ldquo;${esc(t.trim())}&rdquo;</span>`;
+  if (s.key === "read") {
+    const cands = [...s.uptime.map((c) => ["Uptime target", c.value + "%", c]), ...s.resolution.map((c) => ["Repair limit", c.value + " h", c])];
+    return `<div class="readers">${s.readers.map((r) => `<div class="reader"><b>${esc(r.name)}</b> ${chip(r.state === "ran" ? "COMPLIANT" : "plain", r.state)}<br><span class="muted">${esc(r.note)}</span></div>`).join("")}</div>` +
+      (cands.length ? `<table class="mini"><thead><tr><th>Found</th><th>Value</th><th>Sentence it came from</th></tr></thead><tbody>${cands.map(([k, v, c]) =>
+        `<tr><td>${esc(k)}</td><td><b>${esc(v)}</b>${c.governs ? " (overrides)" : ""}</td><td>${q(c.quote)}</td></tr>`).join("")}</tbody></table>` : '<p class="muted">No numeric targets found.</p>') +
+      (s.tiers.length ? `<p><b>Credit table</b></p><table class="mini"><tbody>${s.tiers.map((t) => `<tr><td>${esc(t.range)}</td><td>${esc(t.credit_percent)}% of the fee</td></tr>`).join("")}</tbody></table>` : "") +
+      (s.vague.length ? `<p><b>Vague requirements</b></p>${s.vague.map((v) => `<div>${q(v)}</div>`).join("")}` : "") +
+      (s.scope && s.scope.length ? `<p class="muted">The repair clause covers ${esc(s.scope.join(", "))} events only.</p>` : "");
+  }
+  if (s.key === "verify") {
+    return `<p class="muted" style="margin:0 0 6px;">${esc(s.note)}</p>` +
+      (s.rejected.length ? s.rejected.map((r) => `<div class="no-t">Rejected: ${esc(r)}</div>`).join("") : '<div class="ok-t">Every number was found in the contract text.</div>');
+  }
+  if (s.key === "readings") {
+    return (s.items.length ? `<table class="mini"><thead><tr><th>Reading</th><th>Uptime target</th><th>Repair limit</th><th>Covers</th><th>Assumptions</th></tr></thead><tbody>${s.items.map((r) =>
+      `<tr><td><b>${esc(r.id)}</b></td><td>${!r.uptime_applicable ? "not part of this SLA" : r.uptime == null ? "not checked" : esc(r.uptime) + "%"}</td>
+       <td>${!r.resolution_applicable ? "not part of this SLA" : r.resolution_hours == null ? "not checked" : esc(r.resolution_hours) + " h"}</td>
+       <td>${esc((r.scope || ["all events"]).join(", "))}</td><td class="muted">${esc(r.assumptions.join("; "))}</td></tr>`).join("")}</tbody></table>` : "") +
+      s.notes.map((n) => `<div class="muted">${esc(n)}</div>`).join("") + s.blockers.map((b) => `<div class="no-t">${esc(b)}</div>`).join("");
+  }
+  if (s.key === "data") {
+    return `<p class="muted" style="margin:0 0 6px;">${esc(s.note)}</p>` + (s.views.length ? `<table class="mini"><thead><tr><th>Scope</th><th>View</th><th>Rows</th><th>Used</th><th>Unusable</th><th>Doubtful</th><th>Fleet uptime</th><th>Slowest repair</th><th>Grade</th></tr></thead><tbody>${s.views.map((v) =>
+      `<tr><td>${esc(v.scope)}</td><td>${esc(v.label)}</td><td>${esc(v.rows)}</td><td>${esc(v.used)}</td><td>${esc(v.unusable)}</td><td>${esc(v.doubtful)}</td>
+       <td>${v.fleet_uptime == null ? "-" : esc(v.fleet_uptime) + "%"}</td><td>${v.slowest_repair_h == null ? "-" : esc(v.slowest_repair_h) + " h"}</td><td><b>${esc(v.grade)}</b></td></tr>`).join("")}</tbody></table>` : "");
+  }
+  if (s.key === "envelope") {
+    return s.rows.length ? `<table class="mini"><thead><tr><th>Reading</th><th>Uptime target</th><th>Repair limit</th><th>Telemetry used</th><th>Fleet uptime</th><th>Slowest repair</th><th>Outcome</th><th>Credit</th></tr></thead><tbody>${s.rows.map((r) =>
+      `<tr><td><b>${esc(r.reading)}</b></td><td>${esc(r.uptime_target)}</td><td>${esc(r.repair_limit)}</td><td>${esc(r.telemetry)}</td><td>${esc(r.fleet_uptime ?? "-")}</td><td>${esc(r.slowest_repair_h ?? "-")}</td><td>${esc(r.outcome)}</td><td>${esc(r.credit)}</td></tr>`).join("")}</tbody></table>` : '<p class="muted">There was nothing to test.</p>';
+  }
+  if (s.key === "decision") {
+    return `<p style="margin:0 0 6px;">${esc(s.rule)}</p>` + (s.exposure ? `<p>Money at stake: <b>${esc(s.exposure)}</b></p>` : "") +
+      (s.status === "BREACH" ? `<p>Credit: <b>${esc(s.credit)}</b></p>` : "") +
+      `<details><summary>Rule trace</summary>${s.trace.map((t) => `<div class="muted">${esc(t)}</div>`).join("")}</details>`;
+  }
+  if (s.key === "proof") {
+    if (!s.sealed) return "";
+    const rp = s.replay;
+    return `<table class="mini"><tbody><tr><td>Proof</td><td><code>${esc(s.proof_id)}</code></td></tr>
+      ${s.seq ? `<tr><td>Ledger entry</td><td>#${esc(s.seq)} by ${esc(s.actor)}, ${esc(s.ts)}</td></tr><tr><td>Chain</td><td><code>${esc(s.prev_hash)}</code> then <code>${esc(s.hash)}</code></td></tr>` : ""}</tbody></table>` +
+      (rp ? `<p style="margin:8px 0 4px;">${rp.ok ? '<span class="ok-t">Replay verified</span>: the same decision was reproduced from the contract and telemetry, with no AI.' : '<span class="no-t">Replay failed</span>'}</p>
+      <div class="checks">${rp.checks.map((c) => `<div class="${c.startsWith("PASS") ? "ok-t" : "no-t"}">${esc(c)}</div>`).join("")}</div>` : "");
+  }
+  return "";
+}
+
+function renderRun(v) {
+  const stages = v.stages.map((s, i) => {
+    const body = stageBody(s);
+    const last = s.key === "decision";
+    return `<div class="stage ${last ? "final" : ""}"><div class="num">${i + 1}</div><div class="card">
+      <div class="head"><b>${esc(s.title)}</b><span class="ms">${s.ms != null ? esc(s.ms) + " ms" : ""}</span></div>
+      <div class="sum">${last ? chip(s.status, s.status_label) + " " : ""}${esc(s.summary)}</div>
+      ${body ? `<details ${last || s.key === "envelope" ? "open" : ""}><summary>${last ? "Why this decision" : "Show what it did"}</summary>${body}</details>` : ""}
+    </div></div>`;
+  }).join("");
+  return `<div class="panel"><div class="verdict"><div>${chip(v.status, v.status_label)}</div><div class="what"><b>${esc(v.summary)}</b>
+    <div class="muted" style="font-size:13px;">Seven stages, ${esc(v.total_ms)} ms in total. The model proposes numbers with their sentences; the rules decide.</div></div></div></div>${stages}`;
+}
+
+/* ---------- Workbench ---------- */
+let wbFleets = null;
+async function pageWorkbench() {
+  if (!wbFleets) wbFleets = (await api("/api/fleets")).fleets;
+  const all = (await api("/api/audits")).rows;
+  $("#view").innerHTML = header("Workbench", "Workspace / Workbench",
+    "Load a contract, optionally edit it, choose a fleet's telemetry and run the pipeline. Change a number or add a clause and run it again to see exactly how the decision moves.") + `
+    <div class="cols work">
+      <div class="panel">
+        <h3>Contract</h3>
+        <label for="wb-load">Start from a contract in the register</label>
+        <select id="wb-load" style="width:100%"><option value="">Choose a contract...</option>${all.map((r) =>
+          `<option value="${esc(r.id)}">${esc(r.id)}: ${esc(scenario(r.scenario))}</option>`).join("")}</select>
+        <label for="wb-text">Contract text (editable)</label>
+        <textarea id="wb-text" class="editor" placeholder="Paste contract text, or load one above."></textarea>
+        <label for="wb-fleet">Telemetry to test it against</label>
+        <select id="wb-fleet" style="width:100%">${wbFleets.map((f) =>
+          `<option value="${esc(f.id)}">${esc(f.id)}: ${esc(f.customer)} (${f.vehicles} vehicles, ${f.rows} events)</option>`).join("")}</select>
+        <p><button class="btn" id="wb-run">Run the pipeline</button> <span class="muted" id="wb-note"></span></p>
+        <div class="err hidden" id="wb-err"></div>
+      </div>
+      <div id="wb-result"><div class="panel muted">The result appears here: seven stages, each showing what it looked at and what it produced.</div></div>
+    </div>`;
+  $("#wb-load").addEventListener("change", async (e) => {
+    if (!e.target.value) return;
+    const d = await api("/api/audits/" + encodeURIComponent(e.target.value));
+    $("#wb-text").value = d.contract_text;
+    $("#wb-fleet").value = d.id;
+  });
+  $("#wb-run").addEventListener("click", async () => {
+    const btn = $("#wb-run"); btn.disabled = true; $("#wb-err").classList.add("hidden"); $("#wb-note").textContent = "Running...";
+    try {
+      const v = await api("/api/analyze", { method: "POST", body: JSON.stringify({ contract_text: $("#wb-text").value, fleet: $("#wb-fleet").value }) });
+      $("#wb-result").innerHTML = renderRun(v);
+      $("#wb-note").textContent = "";
+    } catch (err) { $("#wb-err").textContent = err.message; $("#wb-err").classList.remove("hidden"); $("#wb-note").textContent = ""; }
+    btn.disabled = false;
+  });
+}
+
+/* ---------- Overview ---------- */
 async function pageOverview() {
   const s = await api("/api/summary");
   const pct = (n) => (100 * n) / Math.max(s.total, 1);
-  $("#queue-count").textContent = `(${s.counts.ESCALATED})`;
+  const c = s.context;
   const maxReason = Math.max(1, ...s.reasons.map((r) => r.count));
-  $("#view").innerHTML = header("Overview", "Workspace", `Hello ${account.name.split(" ")[0]}. Latest audit run: ${s.total} contracts.`) + `
+  $("#view").innerHTML = header("Overview", "Workspace", `Hello ${account.name.split(" ")[0]}. This is the evaluation set the system is tested on.`) + `
+    <div class="callout warn"><b>Why so many contracts need review.</b> This is a stress-test set of ${s.total} generated contracts, not a real portfolio.
+      ${c.built_for_review} of them were built so that a person <i>should</i> decide (contradictions, vague wording, bad telemetry). The system sent
+      ${c.sent_for_review}: ${c.built_for_review} were correct, and ${c.over_cautious} were more cautious than needed. The number to watch is wrong automatic
+      verdicts, on the System page.</div>
     <div class="stats">
       <div class="stat"><div class="n">${s.total}</div><div class="l">Contracts audited</div></div>
       <div class="stat"><div class="n">${s.counts.COMPLIANT}</div><div class="l">Compliant</div></div>
@@ -225,30 +399,22 @@ async function pageOverview() {
     </div>
     <div class="panel"><h3>Outcome of the latest run</h3>
       <div class="mix"><span style="width:${pct(s.counts.COMPLIANT)}%;background:var(--green)"></span><span style="width:${pct(s.counts.BREACH)}%;background:var(--red)"></span><span style="width:${pct(s.counts.ESCALATED)}%;background:var(--amber)"></span></div>
-      <div class="legend"><span><i style="background:var(--green)"></i>Compliant ${s.counts.COMPLIANT} (${Math.round(pct(s.counts.COMPLIANT))}%)</span><span><i style="background:var(--red)"></i>Breach ${s.counts.BREACH} (${Math.round(pct(s.counts.BREACH))}%)</span><span><i style="background:var(--amber)"></i>Needs review ${s.counts.ESCALATED} (${Math.round(pct(s.counts.ESCALATED))}%)</span></div>
+      <div class="legend"><span><i style="background:var(--green)"></i>Compliant ${s.counts.COMPLIANT}</span><span><i style="background:var(--red)"></i>Breach ${s.counts.BREACH}</span><span><i style="background:var(--amber)"></i>Needs review ${s.counts.ESCALATED}</span></div>
     </div>
     <div class="cols">
-      <div class="panel"><h3>Waiting for review</h3>${table(s.waiting, ["id", "customer", "reason"], ["Contract", "Customer", "Why"])}
-        <p><a class="btn secondary" href="#/review" style="text-decoration:none;display:inline-block;">Open review queue</a></p></div>
+      <div class="panel"><h3>Waiting for review</h3>${table(s.waiting, ["id", "customer", "reason"], ["Contract", "Customer", "Why"])}</div>
       <div class="panel"><h3>Why contracts need review</h3><table>${s.reasons.map((r) =>
-        `<tr><td>${esc(r.reason)}</td><td style="width:38%"><div class="bar"><i style="width:${100 * r.count / maxReason}%"></i></div></td><td style="width:34px;text-align:right">${r.count}</td></tr>`).join("")}</table></div>
-    </div>
-    <div class="panel"><h3>Largest credits on automated breaches</h3>${table(s.top_credits, ["id", "customer", "credit", "reason"], ["Contract", "Customer", "Credit", "Why"])}</div>`;
+        `<tr><td>${esc(r.reason)}</td><td style="width:36%"><div class="bar"><i style="width:${100 * r.count / maxReason}%"></i></div></td><td style="width:34px;text-align:right">${r.count}</td></tr>`).join("")}</table></div>
+    </div>`;
   bindRows();
 }
 
-function table(rows, keys, heads) {
-  if (!rows.length) return '<p class="muted">Nothing to show.</p>';
-  return `<div class="scroll"><table><thead><tr>${heads.map((h) => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>` +
-    rows.map((r) => `<tr class="row" data-id="${esc(r.id)}">${keys.map((k) => `<td>${k === "status" ? chip(r.status, r.status_label) : esc(r[k])}</td>`).join("")}</tr>`).join("") +
-    "</tbody></table></div>";
-}
-function bindRows() { document.querySelectorAll("tr.row").forEach((tr) => tr.addEventListener("click", () => { location.hash = "#/audits/" + tr.dataset.id; })); }
-
-async function pageAudits(escalatedOnly = false) {
-  const title = escalatedOnly ? "Review queue" : "Audits";
+/* ---------- Contracts and Review queue ---------- */
+async function pageList(escalatedOnly) {
+  const title = escalatedOnly ? "Review queue" : "Contracts";
   $("#view").innerHTML = header(title, "Workspace / " + title,
-    escalatedOnly ? "Contracts the system would not decide on its own. Select one to review it." : "Every contract in the latest run. Select a row to see how it was decided.") + `
+    escalatedOnly ? "Contracts the system would not decide on its own. Open one to see why and to record your ruling."
+                  : "Every contract in the latest run. Open one to see the pipeline that produced its decision.") + `
     <div class="filters">
       ${escalatedOnly ? "" : '<select id="f-status" aria-label="Status"><option value="">All statuses</option><option value="COMPLIANT">Compliant</option><option value="BREACH">Breach</option><option value="ESCALATED">Needs review</option></select>'}
       <input id="f-q" placeholder="Search contract, customer or reason" style="flex:1;min-width:220px" aria-label="Search">
@@ -259,8 +425,9 @@ async function pageAudits(escalatedOnly = false) {
     if (st) qs.set("status", st);
     if ($("#f-q").value.trim()) qs.set("q", $("#f-q").value.trim());
     const r = await api("/api/audits?" + qs);
-    $("#list").innerHTML = `<p class="muted">${r.count} of ${r.total} contracts</p>` +
-      table(r.rows, ["id", "customer", "status", "reason", "credit"], ["Contract", "Customer", "Status", "Reason", "Credit"]);
+    $("#list").innerHTML = `<p class="muted">${r.count} of ${r.total} contracts</p>` + table(r.rows,
+      escalatedOnly ? ["id", "customer", "scenario", "reason"] : ["id", "customer", "status", "scenario", "reason", "credit"],
+      escalatedOnly ? ["Contract", "Customer", "Scenario", "Why"] : ["Contract", "Customer", "Status", "Scenario", "Reason", "Credit"], { tall: true });
     bindRows();
   };
   let timer; $("#f-q").addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(load, 250); });
@@ -269,9 +436,15 @@ async function pageAudits(escalatedOnly = false) {
 }
 
 async function pageDetail(id) {
-  const d = await api("/api/audits/" + encodeURIComponent(id));
+  const [d, run] = await Promise.all([api("/api/audits/" + encodeURIComponent(id)), api("/api/audits/" + encodeURIComponent(id) + "/run")]);
   let text = esc(d.contract_text);
-  [...new Set(d.quotes)].sort((a, b) => b.length - a.length).forEach((q) => { const e = esc(q.trim()); if (e) text = text.split(e).join(`<mark>${e}</mark>`); });
+  const read = run.stages.find((s) => s.key === "read");
+  const quotes = [...read.uptime.map((c) => c.quote), ...read.resolution.map((c) => c.quote), ...read.vague, ...read.tiers.map((t) => t.quote)];
+  [...new Set(quotes)].sort((a, b) => b.length - a.length).forEach((q) => { const e = esc(q.trim()); if (e) text = text.split(e).join(`<mark>${e}</mark>`); });
+  const b = d.benchmark;
+  const bench = b ? `<div class="callout ${b.match ? "ok" : "warn"}"><b>Benchmark check.</b> This contract was built as: ${esc(scenario(b.scenario))}.
+      The correct outcome is <b>${esc(b.expected)}</b>; the system's outcome is <b>${esc(d.status_label)}</b>${b.match ? ", which matches." :
+      d.status === "ESCALATED" ? ", more cautious than needed (safe, but a person had to look)." : ". <b>This is a wrong automatic verdict.</b>"}</div>` : "";
   const ruling = d.can_rule ? `
     <div class="panel"><h3>Your ruling</h3>
       <div class="notice">Demo deployment: rulings are kept only temporarily and may disappear when the service restarts.</div>
@@ -284,20 +457,15 @@ async function pageDetail(id) {
       <textarea id="r-note" rows="2" style="width:100%"></textarea>
       <p class="muted" style="font-size:13px;">Recorded as ${esc(account.name)}.</p>
       <button class="btn" id="r-save">Save ruling</button><div class="err hidden" id="r-err"></div>
-    </div>` : (d.status === "ESCALATED" ? `<div class="callout">Your role can view this case but cannot record rulings. Ask a reviewer or administrator to settle it.</div>` : "");
-  $("#view").innerHTML = header(d.id, "Workspace / Audits / " + d.id, d.customer) + `
-    <div class="panel"><h3>${esc(d.id)} &nbsp; ${chip(d.status, d.status_label)}</h3>
-      <p style="margin:0 0 12px;">${esc(d.reason)}</p>
-      <dl class="facts">${d.facts.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl></div>
-    ${d.readings.length ? `<div class="panel"><h3>Readings of the contract and the telemetry</h3>
-      <p class="muted" style="margin:-4px 0 8px;">A verdict is applied automatically only when every row below gives the same outcome.</p>
-      <div class="scroll"><table><thead><tr><th>Reading</th><th>Uptime target</th><th>Repair limit</th><th>Telemetry used</th><th>Fleet uptime</th><th>Slowest repair (h)</th><th>Outcome</th><th>Credit</th></tr></thead><tbody>
-      ${d.readings.map((r) => `<tr><td>${esc(r.reading)}</td><td>${esc(r.uptime_target)}</td><td>${esc(r.repair_limit)}</td><td>${esc(r.telemetry)}</td><td>${esc(r.fleet_uptime)}</td><td>${esc(r.slowest_repair_h)}</td><td>${esc(r.outcome)}</td><td>${esc(r.credit)}</td></tr>`).join("")}
-      </tbody></table></div>${d.notes.map((n) => `<p class="muted" style="margin:6px 0 0;font-size:13px;">${esc(n)}</p>`).join("")}</div>` : ""}
+    </div>` : (d.status === "ESCALATED" ? `<div class="callout">${account.role === "reviewer" ? "This case has no reading to choose between. Correct the input data and audit again." :
+      "Only a reviewer can settle this case. Your role is " + esc(account.role_label) + "."}</div>` : "");
+  $("#view").innerHTML = header(d.id, "Workspace / Contracts / " + d.id, d.customer + ": " + scenario(d.scenario)) + bench +
+    renderRun(run) + `
+    <div class="panel"><h3>Record</h3><dl class="facts">${d.facts.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl></div>
     ${d.brief ? `<div class="panel"><h3>Review brief</h3><pre class="brief">${esc(d.brief)}</pre></div>` : ""}
     ${ruling}
-    <div class="panel"><h3>Contract text, with the cited sentences marked</h3><div class="contract">${text}</div></div>
-    <p><a href="#/audits">Back to audits</a></p>`;
+    <div class="panel"><h3>Contract text, with the sentences the numbers came from marked</h3><div class="contract">${text}</div></div>
+    <p><a href="#/contracts">Back to contracts</a></p>`;
   const save = $("#r-save");
   if (save) save.addEventListener("click", async () => {
     $("#r-err").classList.add("hidden");
@@ -309,21 +477,101 @@ async function pageDetail(id) {
   });
 }
 
+/* ---------- Approvals (administrator) ---------- */
+async function pageApprovals() {
+  const r = await api("/api/approvals");
+  const row = (m) => `<tr class="memo" data-id="${esc(m.contract_id)}"><td><b>${esc(m.contract_id)}</b></td><td>${esc(m.customer)}</td>
+    <td>${m.calculated ? esc(money0(m.amount)) : '<span class="muted">Not calculable</span>'}</td><td>${esc(m.why)}</td><td>${esc(m.reason)}</td></tr>`;
+  $("#view").innerHTML = header("Approvals", "Workspace / Approvals",
+    `Credit memos the system drafted but will not issue by itself: the amount is not backed by a contract clause, cannot be calculated, or exceeds ${money0(r.limit)}. You approve or reject each one.`) + `
+    <div class="cols work">
+      <div class="panel"><h3>Waiting for approval (${r.pending.length})</h3>
+        ${r.pending.length ? `<div class="scroll tall"><table><thead><tr><th>Contract</th><th>Customer</th><th>Amount</th><th>Why approval is needed</th><th>Finding</th></tr></thead><tbody>${r.pending.map(row).join("")}</tbody></table></div>` : '<p class="muted">Nothing is waiting.</p>'}
+      </div>
+      <div class="panel" id="memo-form"><h3>Decision</h3><p class="muted">Select a memo on the left.</p></div>
+    </div>
+    <div class="panel"><h3>Decided in this session (${r.decided.length})</h3>${r.decided.length ? `<table class="mini"><thead><tr><th>Contract</th><th>Decision</th><th>Amount</th><th>By</th><th>Note</th></tr></thead><tbody>${r.decided.map((m) =>
+      `<tr><td>${esc(m.contract_id)}</td><td>${esc(m.decision.decision === "approve" ? "Approved" : "Rejected")}</td><td>${m.decision.amount == null ? "-" : esc(money0(m.decision.amount))}</td><td>${esc(m.decision.by)}</td><td>${esc(m.decision.note)}</td></tr>`).join("")}</tbody></table>` : '<p class="muted">No decisions yet.</p>'}
+      <p class="muted" style="font-size:13px;">Demo deployment: decisions are kept only temporarily.</p></div>`;
+  document.querySelectorAll("tr.memo").forEach((tr) => tr.addEventListener("click", () => {
+    const m = r.pending.find((x) => x.contract_id === tr.dataset.id);
+    document.querySelectorAll("tr.memo").forEach((x) => (x.style.background = ""));
+    tr.style.background = "#F4F7FC";
+    $("#memo-form").innerHTML = `<h3>${esc(m.contract_id)}: ${esc(m.customer)}</h3>
+      <p>${esc(m.reason)}</p><p class="muted">${esc(m.basis)}</p>
+      <label for="m-amt">Amount to issue (USD)${m.calculated ? "" : " (required: the contract gives no way to calculate it)"}</label>
+      <input id="m-amt" type="number" min="0" step="0.01" value="${m.calculated ? esc(m.amount) : ""}" style="width:100%">
+      <label for="m-note">Note</label><textarea id="m-note" rows="2" style="width:100%"></textarea>
+      <p><button class="btn" id="m-ok">Approve credit memo</button> <button class="btn danger" id="m-no">Reject</button></p>
+      <div class="err hidden" id="m-err"></div><p><a href="#/contracts/${esc(m.contract_id)}">Open the contract and its pipeline</a></p>`;
+    const send = async (decision) => {
+      $("#m-err").classList.add("hidden");
+      try {
+        await api("/api/approvals/" + encodeURIComponent(m.contract_id), { method: "POST",
+          body: JSON.stringify({ decision, amount: $("#m-amt").value, note: $("#m-note").value }) });
+        await pageApprovals();
+      } catch (err) { $("#m-err").textContent = err.message; $("#m-err").classList.remove("hidden"); }
+    };
+    $("#m-ok").addEventListener("click", () => send("approve"));
+    $("#m-no").addEventListener("click", () => send("reject"));
+  }));
+}
+
+/* ---------- System (administrator) ---------- */
+async function pageSystem() {
+  const s = await api("/api/system");
+  const b = s.benchmark || {};
+  const pc = (x) => (100 * x).toFixed(1) + "%";
+  const grid = (cm) => `<table class="mini"><thead><tr><th>Correct outcome</th><th>Compliant</th><th>Breach</th><th>Needs review</th></tr></thead><tbody>${
+    ["COMPLIANT", "BREACH", "ESCALATED"].map((e) => `<tr><td><b>${esc({ COMPLIANT: "Compliant", BREACH: "Breach", ESCALATED: "Needs review" }[e])}</b></td>${
+      ["COMPLIANT", "BREACH", "ESCALATED"].map((g) => `<td>${cm[e][g]}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+  $("#view").innerHTML = header("System", "Workspace / System", "The controls the system runs under, and the evidence that they work.") + `
+    <div class="cols">
+      <div class="panel"><h3>Audit ledger</h3>
+        <div class="callout ${s.ledger.intact ? "ok" : "warn"}">${s.ledger.intact ? "Intact" : "Altered"}: ${esc(s.ledger.message)}. ${s.ledger.entries} decisions recorded, ${s.ledger.human_rulings} by a person.</div>
+        <p class="muted">Each entry contains the hash of the one before it, so changing or removing an old record breaks every later hash. This check ran just now.</p></div>
+      <div class="panel"><h3>Guardrails</h3><table class="mini"><tbody>${s.guardrails.map((g) =>
+        `<tr><td><b>${esc(g.name)}</b></td><td>${esc(g.value)}</td><td class="muted">${esc(g.note)}</td></tr>`).join("")}</tbody></table></div>
+    </div>
+    ${b.engine ? `<div class="panel"><h3>Evidence: ${b.n} generated contracts with known answers</h3>
+      <div class="stats" style="margin-bottom:12px;">
+        <div class="stat"><div class="n">${b.engine.wrong_automatic}</div><div class="l">Wrong automatic verdicts (this system)</div></div>
+        <div class="stat"><div class="n">${b.legacy.wrong_automatic}</div><div class="l">Wrong automatic verdicts (single-reading baseline)</div></div>
+        <div class="stat"><div class="n">${pc(b.engine.accuracy)}</div><div class="l">Accuracy (baseline ${pc(b.legacy.accuracy)})</div></div>
+        <div class="stat"><div class="n">${pc(b.engine.escalation_rate)}</div><div class="l">Sent to a person (baseline ${pc(b.legacy.escalation_rate)})</div></div>
+      </div>
+      <div class="cols"><div><p><b>This system</b></p>${grid(b.confusion_engine)}</div><div><p><b>Single-reading baseline</b></p>${grid(b.confusion_legacy)}</div></div>
+      <p class="muted" style="font-size:13px;">Results are on contracts and telemetry generated for testing. They show that the logic behaves as designed, not how it performs on real contracts.</p></div>
+    <div class="panel"><h3>What each part is worth</h3>
+      <p class="muted" style="margin-top:-4px;">Each row switches one part off and re-scores the same contracts.</p>
+      <table class="mini"><thead><tr><th>Variant</th><th>Accuracy</th><th>Wrong automatic verdicts</th><th>Over-escalated</th><th>Sent to a person</th></tr></thead><tbody>${b.ablation.map((a) =>
+        `<tr><td>${esc(a.variant)}</td><td>${pc(a.accuracy)}</td><td><b>${a.wrong_automatic}</b></td><td>${a.over_escalated}</td><td>${pc(a.escalation_rate)}</td></tr>`).join("")}</tbody></table>
+      <p style="margin:14px 0 4px;"><b>If the reader misreads every number</b></p>
+      <table class="mini"><tbody>${b.fault_injection.map((a) => `<tr><td>${esc(a.variant)}</td><td>${pc(a.accuracy)} accuracy</td><td><b>${a.wrong_automatic}</b> wrong automatic verdicts</td></tr>`).join("")}</tbody></table></div>
+    <div class="panel"><h3>By scenario</h3><div class="scroll"><table class="mini"><thead><tr><th>Scenario</th><th>Contracts</th><th>Correct outcome</th><th>Correct</th><th>Wrong automatic</th></tr></thead><tbody>${b.categories.map((c) =>
+      `<tr><td>${esc(scenario(c.category))}</td><td>${c.n}</td><td>${esc({ COMPLIANT: "Compliant", BREACH: "Breach", ESCALATED: "Needs review" }[c.expected])}</td><td>${c.correct}</td><td>${c.wrong_automatic}</td></tr>`).join("")}</tbody></table></div></div>` : ""}`;
+}
+
 /* ---------- router ---------- */
 async function route() {
   if (!store.token) return showSignIn();
   account = account || store.account;
   if (!account) return signOut();
   const [, page, arg] = location.hash.split("/");
-  document.querySelectorAll("nav a").forEach((a) => a.classList.toggle("active",
-    a.dataset.nav === (page === "review" ? "review" : page === "audits" ? "audits" : "overview")));
+  const known = (ROLE_NAV[account.role] || []).map((x) => x[0]);
+  const here = page || account.home;
+  document.querySelectorAll("nav a").forEach((a) => a.classList.toggle("active", a.dataset.nav === here));
   try {
-    if (page === "audits" && arg) await pageDetail(decodeURIComponent(arg));
-    else if (page === "audits") await pageAudits(false);
-    else if (page === "review") await pageAudits(true);
-    else await pageOverview();
+    if (here === "contracts" && arg) await pageDetail(decodeURIComponent(arg));
+    else if (here === "contracts") await pageList(false);
+    else if (here === "review") await pageList(true);
+    else if (here === "workbench") await pageWorkbench();
+    else if (here === "approvals") await pageApprovals();
+    else if (here === "system") await pageSystem();
+    else if (here === "overview") await pageOverview();
+    else if (known.length) location.hash = "#/" + account.home;
     window.scrollTo(0, 0);
-  } catch (err) { $("#view").innerHTML = `<div class="panel"><h3>Something went wrong</h3><p>${esc(err.message)}</p></div>`; }
+  } catch (err) { $("#view").innerHTML = `<div class="panel"><h3>This page is not available</h3><p>${esc(err.message)}</p></div>`; }
 }
 window.addEventListener("hashchange", route);
 (async () => { if (store.token && store.account) { account = store.account; await enterApp(); } else { showSignIn(); } })();
