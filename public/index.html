@@ -162,7 +162,16 @@ async function api(path, opts = {}) {
 /* ---------- sign in ---------- */
 async function showSignIn() {
   $("#app").classList.add("hidden"); $("#who").classList.add("hidden"); $("#signin").classList.remove("hidden");
-  const data = await (await fetch("/api/accounts")).json();
+  let data;
+  try {
+    const res = await fetch("/api/accounts");
+    if (!res.ok) throw new Error("status " + res.status);
+    data = await res.json();
+  } catch (err) {
+    $("#signin-err").textContent = "The service is not responding, so accounts cannot be loaded. Try again in a moment.";
+    $("#signin-err").classList.remove("hidden");
+    return;
+  }
   const pick = $("#who-pick");
   pick.innerHTML = data.accounts.map((a, i) => `<option value="${i}">${esc(a.name)} (${esc(a.role_label)})</option>`).join("");
   const fill = () => {
